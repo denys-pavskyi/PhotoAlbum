@@ -24,7 +24,9 @@ namespace DataAccessLayer.Entities
 
         [Required]
         public DateTime CreationDate { get; set; }
+        
+        
         public User User { get; set; }
-        public ICollection<AlbumPhoto> Photos { get; set; }
+        public ICollection<AlbumPhoto> AlbumPhotos { get; set; }
     }
 }

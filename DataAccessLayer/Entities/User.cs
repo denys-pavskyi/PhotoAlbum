@@ -33,7 +33,7 @@ namespace DataAccessLayer.Entities
         public DateTime RegistrationDate { get; set; }
 
 
-
+        public ICollection<PhotoRating> PhotoRatings { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Album> Albums { get; set; }
     }

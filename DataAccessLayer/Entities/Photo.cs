@@ -28,7 +28,7 @@ namespace DataAccessLayer.Entities
 
 
         public User User { get; set; }
-        public ICollection<AlbumPhoto> Albums { get; set; }
+        public ICollection<AlbumPhoto> AlbumPhotos { get; set; }
         public ICollection<PhotoRating> PhotoRatings { get; set; }
         public ICollection<PhotoTag> PhotoTags { get; set; }
 
