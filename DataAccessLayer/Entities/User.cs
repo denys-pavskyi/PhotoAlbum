@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,23 +11,25 @@ namespace DataAccessLayer.Entities
 {
     public class User : BaseEntity
     {
-        [Required, StringLength(50)]
+
+        [Required, StringLength(40)]
         public string UserName { get; set; }
+
         [Required, StringLength(50)]
         public string Password { get; set; }
 
+
+        [Required ,EmailAddress]
+        public string EmailAddress { get; set; }    
+
         [Required, StringLength(100)]
         public string FirstName { get; set; }
-
         [Required, StringLength(100)]
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
 
         [Required, Range(1, int.MaxValue)]
         public int Age { get; set; }
-
-        [Required, StringLength(100)]
-        public string Email { get; set; }
 
         [Required]
         public DateTime RegistrationDate { get; set; }
