@@ -35,8 +35,19 @@ namespace DataAccessLayer.Entities
         public DateTime RegistrationDate { get; set; }
 
 
+        [Required]
+        public Role Role { get; set; }
+
         public ICollection<PhotoRating> PhotoRatings { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Album> Albums { get; set; }
     }
+     
+    public enum Role
+    {
+        Admin,
+        User
+    }
+
+    
 }

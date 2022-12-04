@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(InternetPhotoAlbumDbContext))]
-    [Migration("20221203234739_InitialCreate")]
+    [Migration("20221204021828_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -217,6 +217,9 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .IsRequired()
