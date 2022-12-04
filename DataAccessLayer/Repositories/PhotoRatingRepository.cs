@@ -32,7 +32,7 @@ namespace DataAccessLayer.Repositories
 
         public async Task DeleteByIdAsync(int id)
         {
-            var photoRating = await GetByIdWithDetailsAsync(id);
+            var photoRating = await _context.PhotosRating.FindAsync(id);
             _context.PhotosRating.Remove(photoRating);
         }
 

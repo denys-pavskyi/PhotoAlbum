@@ -31,7 +31,7 @@ namespace DataAccessLayer.Repositories
 
         public async Task DeleteByIdAsync(int id)
         {
-            var PhotoTag = await GetByIdWithDetailsAsync(id);
+            var PhotoTag = await _context.PhotoTags.FindAsync(id);
             _context.PhotoTags.Remove(PhotoTag);
         }
 

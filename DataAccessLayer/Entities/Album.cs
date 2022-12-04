@@ -12,8 +12,11 @@ namespace DataAccessLayer.Entities
 {
     public class Album: BaseEntity
     {
-        [Required, StringLength(200)]
+        [Required, StringLength(100)]
         public string Title { get; set; }
+
+        [StringLength(300)]
+        public string Description { get; set; }
 
         public int NumberOfPictures { get; set; }
 

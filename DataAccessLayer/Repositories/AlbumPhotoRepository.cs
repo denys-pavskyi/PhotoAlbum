@@ -31,7 +31,7 @@ namespace DataAccessLayer.Repositories
 
         public async Task DeleteByIdAsync(int id)
         {
-            var AlbumPhoto = await GetByIdWithDetailsAsync(id);
+            var AlbumPhoto = await _context.AlbumPhotos.FindAsync(id);
             _context.AlbumPhotos.Remove(AlbumPhoto);
         }
 

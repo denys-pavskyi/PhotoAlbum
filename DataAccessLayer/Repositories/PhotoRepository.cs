@@ -34,7 +34,7 @@ namespace DataAccessLayer.Repositories
 
         public async Task DeleteByIdAsync(int id)
         {
-            var photo = await GetByIdWithDetailsAsync(id);
+            var photo = await _context.Photos.FindAsync(id);
             _context.Photos.Remove(photo);
         }
 
@@ -59,6 +59,7 @@ namespace DataAccessLayer.Repositories
         public async Task<Photo> GetByIdWithDetailsAsync(int id)
         {
             return await _context.Photos
+                .Include(x => x.User)
                 .Include(x => x.PhotoRatings)
                 .Include(x => x.PhotoTags)
                 .Include(x => x.AlbumPhotos)
@@ -69,6 +70,7 @@ namespace DataAccessLayer.Repositories
         public async Task<IEnumerable<Photo>> GetAllWithDetailsAsync()
         {
             return await _context.Photos
+                .Include(x => x.User)
                 .Include(x => x.PhotoRatings)
                 .Include(x => x.PhotoTags)
                 .Include(x => x.AlbumPhotos)

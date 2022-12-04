@@ -17,6 +17,9 @@ namespace DataAccessLayer.Entities
         [Required, StringLength(150)]
         public string Title { get; set; }
 
+        [StringLength(300)]
+        public string Description { get; set; }
+
         [Required]
         public DateTime UploadDate { get; set; }
 
