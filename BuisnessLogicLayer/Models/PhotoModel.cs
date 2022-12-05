@@ -10,13 +10,13 @@ namespace BuisnessLogicLayer.Models
     {
         public int Id { get; set; }
 
-        public string? PhotoUrl { get; set; }
+        public string PhotoUrl { get; set; }
 
-        public string? Title { get; set; }
+        public string Title { get; set; }
 
         public string? Description { get; set; }
 
-        public DateTime? UploadDate { get; set; }
+        public DateTime UploadDate { get; set; }
 
         public int UserId { get; set; }
 
