@@ -48,7 +48,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
 
             var userRepository = new UserRepository(context);
             var numberOfUsers = context.Users.Count();
-            var user = new User { Id = 3, UserName = "Username3", FirstName = "FirstName3", LastName = "LastName3", Password = "P@ssw0rd3", Age = 31, RegistrationDate = new DateTime(2021, 5, 3), EmailAddress = "user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User };
+            var user = new User { Id = 3, UserName = "Username3", FirstName = "FirstName3", LastName = "LastName3", Password = "P@ssw0rd3" , RegistrationDate = new DateTime(2021, 5, 3), EmailAddress = "user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User };
 
             await userRepository.AddAsync(user);
             await context.SaveChangesAsync();
@@ -82,7 +82,6 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
                 FirstName = "FirstName22",
                 LastName = "LastName22",
                 Password = "P@ssw0rd22",
-                Age = 31,
                 RegistrationDate = new DateTime(2021, 5, 3),
                 EmailAddress = "user1@gmail.com",
                 BirthDate = new DateTime(1991, 3, 5),
@@ -101,7 +100,6 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
                 FirstName = "FirstName22",
                 LastName = "LastName22",
                 Password = "P@ssw0rd22",
-                Age = 31,
                 RegistrationDate = new DateTime(2021, 5, 3),
                 EmailAddress = "user1@gmail.com",
                 BirthDate = new DateTime(1991, 3, 5),
@@ -172,8 +170,8 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
         public static IEnumerable<User> ExpectedUsers =>
            new[]
            {
-               new User { Id = 1,UserName = "Username1",  FirstName="FirstName1", LastName = "LastName1", Password="P@ssw0rd1", Age = 31, RegistrationDate = new DateTime(2021,5,3), EmailAddress="user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User },
-               new User { Id = 2, UserName = "Username2", FirstName = "FirstName2", LastName = "LastName2", Password = "P@ssw0rd2", Age = 26, RegistrationDate = new DateTime(2022, 10,13), EmailAddress = "user2@gmail.com", BirthDate = new DateTime(1996, 10,17), Role = Role.Admin }
+               new User { Id = 1,UserName = "Username1",  FirstName="FirstName1", LastName = "LastName1", Password="P@ssw0rd1" , RegistrationDate = new DateTime(2021,5,3), EmailAddress="user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User },
+               new User { Id = 2, UserName = "Username2", FirstName = "FirstName2", LastName = "LastName2", Password = "P@ssw0rd2" , RegistrationDate = new DateTime(2022, 10,13), EmailAddress = "user2@gmail.com", BirthDate = new DateTime(1996, 10,17), Role = Role.Admin }
            };
 
         public static IEnumerable<Photo> ExpectedPhotos =>

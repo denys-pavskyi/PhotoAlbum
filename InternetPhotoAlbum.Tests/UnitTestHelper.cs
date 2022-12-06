@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Data;
+﻿using AutoMapper;
+using BuisnessLogicLayer;
+using DataAccessLayer.Data;
 using DataAccessLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,6 +28,13 @@ namespace InternetPhotoAlbum.Tests
             return options;
         }
 
+        public static IMapper CreateMapperProfile()
+        {
+            var myProfile = new AutomapperProfile();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
+
+            return new Mapper(configuration);
+        }
 
         public static void SeedData(InternetPhotoAlbumDbContext context)
         {
@@ -62,8 +71,8 @@ namespace InternetPhotoAlbum.Tests
                 );
 
             context.Users.AddRange(
-                    new User { Id = 1,UserName = "Username1",  FirstName="FirstName1", LastName = "LastName1", Password="P@ssw0rd1", Age = 31, RegistrationDate = new DateTime(2021,5,3), EmailAddress="user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User },
-                    new User { Id = 2, UserName = "Username2", FirstName = "FirstName2", LastName = "LastName2", Password = "P@ssw0rd2", Age = 26, RegistrationDate = new DateTime(2022, 10,13), EmailAddress = "user2@gmail.com", BirthDate = new DateTime(1996, 10,17), Role = Role.Admin }
+                    new User { Id = 1,UserName = "Username1",  FirstName="FirstName1", LastName = "LastName1", Password="P@ssw0rd1", RegistrationDate = new DateTime(2021,5,3), EmailAddress="user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User },
+                    new User { Id = 2, UserName = "Username2", FirstName = "FirstName2", LastName = "LastName2", Password = "P@ssw0rd2", RegistrationDate = new DateTime(2022, 10,13), EmailAddress = "user2@gmail.com", BirthDate = new DateTime(1996, 10,17), Role = Role.Admin }
             );
             context.SaveChanges();
 

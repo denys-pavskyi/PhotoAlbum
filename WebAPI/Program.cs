@@ -1,3 +1,5 @@
+using AutoMapper;
+using BuisnessLogicLayer;
 using DataAccessLayer.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +34,12 @@ builder.Services.AddDbContext<InternetPhotoAlbumDbContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
+
+var mapperConfiguration = new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new AutomapperProfile());
+});
+builder.Services.AddSingleton(mapperConfiguration.CreateMapper());
 
 
 var app = builder.Build();

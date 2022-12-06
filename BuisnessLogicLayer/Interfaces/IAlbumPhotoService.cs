@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BuisnessLogicLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace BuisnessLogicLayer.Interfaces
 {
-    internal interface IAlbumPhotoService
+    public interface IAlbumPhotoService : ICrud<AlbumPhotoModel>
     {
+
+
     }
 }

@@ -153,15 +153,14 @@ namespace InternetPhotoAlbum.Tests
                 return false;
 
             return x.Id == y.Id &&
-                x.UserName == y.UserName && 
-                x.Password == y.Password && 
-                x.EmailAddress == y.EmailAddress && 
-                x.FirstName == y.FirstName && 
+                x.UserName == y.UserName &&
+                x.Password == y.Password &&
+                x.EmailAddress == y.EmailAddress &&
+                x.FirstName == y.FirstName &&
                 x.LastName == y.LastName &&
-                x.BirthDate == y.BirthDate && 
-                x.RegistrationDate == y.RegistrationDate && 
-                x.Role == y.Role && 
-                x.Age == y.Age;
+                x.BirthDate == y.BirthDate &&
+                x.RegistrationDate == y.RegistrationDate &&
+                x.Role == y.Role;
 
         }
 

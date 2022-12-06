@@ -1,12 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BuisnessLogicLayer.Validation
 {
-    internal class InternetPhotoAlbumException
+    [Serializable]
+    public class InternetPhotoAlbumException:Exception
     {
+
+        public InternetPhotoAlbumException()
+        { }
+
+        public InternetPhotoAlbumException(string message)
+            : base(message)
+        { }
+
+        public InternetPhotoAlbumException(string message, Exception innerException)
+            : base(message, innerException)
+        { }
+
+        protected InternetPhotoAlbumException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
     }
 }

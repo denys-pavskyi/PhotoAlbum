@@ -24,12 +24,10 @@ namespace DataAccessLayer.Entities
 
         [Required, StringLength(100)]
         public string FirstName { get; set; }
-        [Required, StringLength(100)]
+        [StringLength(100)]
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
 
-        [Required, Range(1, int.MaxValue)]
-        public int Age { get; set; }
 
         [Required]
         public DateTime RegistrationDate { get; set; }
