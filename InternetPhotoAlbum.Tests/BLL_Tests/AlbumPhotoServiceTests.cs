@@ -10,6 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Castle.Core.Resource;
+using FluentAssertions.Execution;
+using System.Reflection;
+using BuisnessLogicLayer.Validation;
 
 namespace InternetPhotoAlbum.Tests.BLL_Tests
 {
@@ -36,25 +40,131 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
         }
 
         [Test]
-        public async Task AlbumPhotoService_GetById_ReturnsCustomerModel()
+        public async Task AlbumPhotoService_GetById_ReturnsAlbumPhotoModel()
         {
             //arrange
-            var expected = GetTestCustomerModels.First();
+            var expected = GetTestAlbumPhotoModels.First();
             var mockUnitOfWork = new Mock<IUnitOfWork>();
 
             mockUnitOfWork
-                .Setup(m => m.CustomerRepository.GetByIdWithDetailsAsync(It.IsAny<int>()))
-                .ReturnsAsync(GetTestCustomerEntities.First());
+                .Setup(m => m.AlbumPhotoRepository.GetByIdWithDetailsAsync(It.IsAny<int>()))
+                .ReturnsAsync(GetTestAlbumPhotoEntities.First());
 
-            var customerService = new CustomerService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
+            var albumPhotoService = new AlbumPhotoService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
 
             //act
-            var actual = await customerService.GetByIdAsync(1);
+            var actual = await albumPhotoService.GetByIdAsync(1);
 
             //assert
             actual.Should().BeEquivalentTo(expected);
         }
 
+
+        
+
+        [Test]
+        public async Task AlbumPhotoService_AddAsync_AddsModel()
+        {
+            //arrange
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(m => m.AlbumPhotoRepository.AddAsync(It.IsAny<AlbumPhoto>()));
+
+            var albumPhotoService = new AlbumPhotoService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
+            var albumPhoto = GetTestAlbumPhotoModels.First();
+
+            //act
+            await albumPhotoService.AddAsync(albumPhoto);
+
+            //assert
+            mockUnitOfWork.Verify(x => x.AlbumPhotoRepository.AddAsync(It.Is<AlbumPhoto>(x =>
+                            x.Id == albumPhoto.Id && x.PhotoId == albumPhoto.PhotoId &&
+                            x.AdditionDate == albumPhoto.AdditionDate &&
+                            x.AlbumId == albumPhoto.AlbumId)), Times.Once);
+            mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
+        }
+
+        [Test]
+        public async Task AlbumPhotoService_AddAsync_ThrowsInternetPhotoAlbumExceptionWithWrongId()
+        {
+            //arrange
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(m => m.AlbumPhotoRepository.AddAsync(It.IsAny<AlbumPhoto>()));
+
+            var albumPhotoService = new AlbumPhotoService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
+            var albumPhoto = GetTestAlbumPhotoModels.First();
+            albumPhoto.PhotoId = -1;
+
+            //act
+            Func<Task> act = async () => await albumPhotoService.AddAsync(albumPhoto);
+
+            //assert
+            await act.Should().ThrowAsync<InternetPhotoAlbumException>();
+        }
+
+
+        [Test]
+        public async Task AlbumPhotoService_AddAsync_ThrowsMarketExceptionWithNullObject()
+        {
+            //arrange
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(m => m.AlbumPhotoRepository.AddAsync(It.IsAny<AlbumPhoto>()));
+
+            var albumPhotoService = new AlbumPhotoService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
+
+            //act
+            Func<Task> act = async () => await albumPhotoService.AddAsync(null);
+
+            //assert
+            await act.Should().ThrowAsync<InternetPhotoAlbumException>();
+        }
+
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        public async Task AlbumPhotoService_DeleteAsync_DeletesAlbumPhoto(int id)
+        {
+            //arrange
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(m => m.AlbumPhotoRepository.DeleteByIdAsync(It.IsAny<int>()));
+            var albumPhotoService = new AlbumPhotoService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
+
+            //act
+            await albumPhotoService.DeleteAsync(id);
+
+            //assert
+            mockUnitOfWork.Verify(x => x.AlbumPhotoRepository.DeleteByIdAsync(id), Times.Once());
+            mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once());
+        }
+
+        
+
+        [Test]
+        public async Task AlbumPhotoService_UpdateAsync_UpdatesAlbumPhoto()
+        {
+            //arrange
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(m => m.AlbumPhotoRepository.Update(It.IsAny<AlbumPhoto>()));
+ 
+
+            var albumPhotoService = new AlbumPhotoService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
+            var albumPhoto = GetTestAlbumPhotoModels.First();
+
+            //act
+            await albumPhotoService.UpdateAsync(albumPhoto);
+
+            //assert
+            mockUnitOfWork.Verify(x => x.AlbumPhotoRepository.Update(It.Is<AlbumPhoto>(x =>
+                x.Id == albumPhoto.Id && x.PhotoId == albumPhoto.PhotoId &&
+                            x.AdditionDate == albumPhoto.AdditionDate &&
+                            x.AlbumId == albumPhoto.AlbumId)), Times.Once);
+            mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
+        }
+
+        
+
+       
+
+       
 
         #region Data
 
@@ -73,23 +183,6 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
                 new AlbumPhoto{ Id = 2, AlbumId= 2, PhotoId = 2, AdditionDate = new DateTime(2021,2,2) },
                 new AlbumPhoto{ Id = 3, AlbumId= 2, PhotoId = 3, AdditionDate = new DateTime(2021,3,3) }
            };
-
-
-        /*public List<AlbumPhotoModel> GetTestPhotoModels =>
-            new List<PhotoModel>()
-            {
-                new PhotoModel{ Id = 1, AlbumId= 1, PhotoId = 1, AdditionDate = new DateTime(2021,1,1) },
-
-            };
-
-        public List<AlbumModel> GetTestAlbumModels =>
-            new List<AlbumModel>()
-            {
-                new AlbumModel{ Id = 1, CreationDate = new DateTime(2020,2,2), Description="desc1", Title = "title1",
-                 UserId},
-
-            };*/
-
 
         #endregion
 
