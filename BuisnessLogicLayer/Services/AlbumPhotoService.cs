@@ -17,6 +17,7 @@ namespace BuisnessLogicLayer.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
+
         public AlbumPhotoService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
@@ -33,9 +34,10 @@ namespace BuisnessLogicLayer.Services
             await _unitOfWork.SaveAsync();
         }
 
-        public Task DeleteAsync(int modelId)
+        public async Task DeleteAsync(int modelId)
         {
-            throw new NotImplementedException();
+            await _unitOfWork.AlbumPhotoRepository.DeleteByIdAsync(modelId);
+            await _unitOfWork.SaveAsync();
         }
 
         public async Task<IEnumerable<AlbumPhotoModel>> GetAllAsync()
@@ -44,14 +46,18 @@ namespace BuisnessLogicLayer.Services
             return _mapper.Map<IEnumerable<AlbumPhotoModel>>(unmappedAlbumPhotos);
         }
 
-        public Task<AlbumPhotoModel> GetByIdAsync(int id)
+        public async Task<AlbumPhotoModel> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var unmappedAlbumPhoto = await _unitOfWork.AlbumPhotoRepository.GetByIdWithDetailsAsync(id);
+            return _mapper.Map<AlbumPhotoModel>(unmappedAlbumPhoto  );
         }
 
-        public Task UpdateAsync(AlbumPhotoModel model)
+        public async Task UpdateAsync(AlbumPhotoModel model)
         {
-            throw new NotImplementedException();
+            ModelsValidation.AlbumPhotoModelValidation(model);
+            var mapped = _mapper.Map<AlbumPhoto>(model);
+            _unitOfWork.AlbumPhotoRepository.Update(mapped);
+            await _unitOfWork.SaveAsync();
         }
     }
 }

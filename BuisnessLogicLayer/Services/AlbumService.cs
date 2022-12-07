@@ -8,10 +8,11 @@ using BuisnessLogicLayer.Interfaces;
 using BuisnessLogicLayer.Models;
 using DataAccessLayer.Interfaces;
 using BuisnessLogicLayer.Validation;
+using DataAccessLayer.Entities;
 
 namespace BuisnessLogicLayer.Services
 {
-    public class AlbumService
+    public class AlbumService: IAlbumService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -22,6 +23,39 @@ namespace BuisnessLogicLayer.Services
             _mapper = mapper;
         }
 
+        public async Task AddAsync(AlbumModel model)
+        {
+            ModelsValidation.AlbumModelValidation(model);
+            var mappedAlbum = _mapper.Map<Album>(model);
 
+            await _unitOfWork.AlbumRepository.AddAsync(mappedAlbum);
+            await _unitOfWork.SaveAsync();
+        }
+
+        public async Task DeleteAsync(int modelId)
+        {
+            await _unitOfWork.AlbumRepository.DeleteByIdAsync(modelId);
+            await _unitOfWork.SaveAsync();
+        }
+
+        public async Task<IEnumerable<AlbumModel>> GetAllAsync()
+        {
+            IEnumerable<Album> unmappedAlbums = await _unitOfWork.AlbumRepository.GetAllWithDetailsAsync();
+            return _mapper.Map<IEnumerable<AlbumModel>>(unmappedAlbums);
+        }
+
+        public async Task<AlbumModel> GetByIdAsync(int id)
+        {
+            var unmappedAlbum = await _unitOfWork.AlbumRepository.GetByIdWithDetailsAsync(id);
+            return _mapper.Map<AlbumModel>(unmappedAlbum);
+        }
+
+        public async Task UpdateAsync(AlbumModel model)
+        {
+            ModelsValidation.AlbumModelValidation(model);
+            var mapped = _mapper.Map<Album>(model);
+            _unitOfWork.AlbumRepository.Update(mapped);
+            await _unitOfWork.SaveAsync();
+        }
     }
 }

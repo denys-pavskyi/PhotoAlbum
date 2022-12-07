@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BuisnessLogicLayer.Interfaces;
 using BuisnessLogicLayer.Models;
 using BuisnessLogicLayer.Services;
 using DataAccessLayer.Data;
@@ -12,20 +13,19 @@ namespace WebAPI.Controllers
     [ApiController]
     public class AlbumPhotoController : ControllerBase
     {
-        private readonly AlbumPhotoService _albumPhotoService;
+        private readonly IAlbumPhotoService _service;
 
-        public AlbumPhotoController(InternetPhotoAlbumDbContext context , IMapper mapper)
+        public AlbumPhotoController(IAlbumPhotoService service)
         {
-            UnitOfWork uow = new UnitOfWork(context);
-            _albumPhotoService = new AlbumPhotoService(uow, mapper);
+            _service = service;
         }
 
 
         // GET: api/AlbumPhoto
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AlbumPhotoModel>>> GetAlbumPhotos()
+        public async Task<ActionResult<IEnumerable<AlbumPhotoModel>>> Get()
         {
-            var albumPhotos = await _albumPhotoService.GetAllAsync();
+            var albumPhotos = await _service.GetAllAsync();
 
             if (albumPhotos == null)
             {
@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
 
                 return new ObjectResult(albumPhotos);
             }
-            ;
+            
         }
 
         // GET api/AlbumPhoto/5
@@ -48,34 +48,34 @@ namespace WebAPI.Controllers
 
         // POST api/AlbumPhoto
         [HttpPost]
-        public async Task<ActionResult> PostAlbumPhoto([FromBody] AlbumPhotoModel albumPhoto)
+        public async Task<ActionResult> Post([FromBody] AlbumPhotoModel AlbumPhoto)
         {
-            if (albumPhoto == null)
+            if (AlbumPhoto == null)
             {
                 return BadRequest();
             }   
             try
             {
-                await _albumPhotoService.AddAsync(albumPhoto);
+                await _service.AddAsync(AlbumPhoto);
             }
             catch
             {
                 return BadRequest();
             }
 
-            return Ok(albumPhoto);
+            return Ok(AlbumPhoto);
 
         }
 
         // PUT api/AlbumPhoto/5
         [HttpPut("{id}")]
-        public void PutAlbumPhoto(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE api/AlbumPhoto/5
         [HttpDelete("{id}")]
-        public void DeleteAlbumPhoto(int id)
+        public void Delete(int id)
         {
         }
     }

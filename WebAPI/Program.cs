@@ -1,6 +1,9 @@
 using AutoMapper;
 using BuisnessLogicLayer;
+using BuisnessLogicLayer.Interfaces;
+using BuisnessLogicLayer.Services;
 using DataAccessLayer.Data;
+using DataAccessLayer.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -41,8 +44,23 @@ var mapperConfiguration = new MapperConfiguration(cfg =>
 });
 builder.Services.AddSingleton(mapperConfiguration.CreateMapper());
 
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+//builder.Services.AddScoped<ITagService, TagService>();
+
+builder.Services.AddTransient<ITagService>(cs =>
+            new TagService(cs.GetService<IUnitOfWork>(), cs.GetService<IMapper>())
+            );
+builder.Services.AddScoped<IAlbumService, AlbumService>();
+builder.Services.AddScoped<IPhotoRatingService, PhotoRatingService>();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.AddScoped<IPhotoTagService, PhotoTagService>();
+builder.Services.AddScoped<ITagService, TagService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

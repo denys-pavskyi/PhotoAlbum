@@ -26,9 +26,9 @@ namespace WebAPI.Controllers
         public async Task<IEnumerable<WeatherForecast>> Get()
         {
             /*UnitOfWork uow = new UnitOfWork(_context);
-            await uow.AlbumPhotoRepository.AddAsync(new AlbumPhoto { Id = 22, PhotoId = 1, AlbumId = 1, AdditionDate = new DateTime(2022, 12, 3) });
+            await uow.TagRepository.AddAsync(new Tag { Id = 22, PhotoId = 1, AlbumId = 1, AdditionDate = new DateTime(2022, 12, 3) });
             await uow.SaveAsync();
-            var tmp1 = (await uow.AlbumPhotoRepository.GetAllAsync()).ToList();
+            var tmp1 = (await uow.TagRepository.GetAllAsync()).ToList();
             int tmp = tmp1.FirstOrDefault().Id;
             */
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
