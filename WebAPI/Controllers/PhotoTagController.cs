@@ -1,8 +1,5 @@
-﻿using AutoMapper;
-using BuisnessLogicLayer.Interfaces;
+﻿using BuisnessLogicLayer.Interfaces;
 using BuisnessLogicLayer.Models;
-using BuisnessLogicLayer.Services;
-using DataAccessLayer.Data;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,72 +8,72 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AlbumPhotoController : ControllerBase
+    public class PhotoTagController : ControllerBase
     {
-        private readonly IAlbumPhotoService _service;
+        private readonly IPhotoTagService _service;
 
-        public AlbumPhotoController(IAlbumPhotoService service)
+        public PhotoTagController(IPhotoTagService service)
         {
             _service = service;
         }
 
-        // GET: api/<AlbumPhotoController>
+        // GET: api/<PhotoTagController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AlbumPhotoModel>>> Get()
+        public async Task<ActionResult<IEnumerable<PhotoTagModel>>> Get()
         {
-            var albumPhotos = await _service.GetAllAsync();
+            var photoTags = await _service.GetAllAsync();
 
-            if (albumPhotos == null)
+            if (photoTags == null)
             {
                 return NotFound();
             }
             else
             {
 
-                return new ObjectResult(albumPhotos);
+                return new ObjectResult(photoTags);
             }
 
         }
 
-        // GET api/<AlbumPhotoController>/5
+        // GET api/<PhotoTagController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<AlbumPhotoModel>> GetById(int id)
+        public async Task<ActionResult<PhotoTagModel>> GetById(int id)
         {
-            var albumPhoto = await _service.GetByIdAsync(id);
-            if (albumPhoto == null)
+            var photoTag = await _service.GetByIdAsync(id);
+            if (photoTag == null)
             {
                 return NotFound();
             }
             else
             {
-                return new ObjectResult(albumPhoto);
+                return new ObjectResult(photoTag);
             }
         }
 
         // POST api/AlbumPhoto
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] AlbumPhotoModel albumPhoto)
+        public async Task<ActionResult> Post([FromBody] PhotoTagModel photoTag)
         {
-            if (albumPhoto == null)
+            if (photoTag == null)
             {
                 return BadRequest();
             }
             try
             {
-                await _service.AddAsync(albumPhoto);
+                await _service.AddAsync(photoTag);
             }
             catch
             {
                 return BadRequest();
             }
 
-            return Ok(albumPhoto);
+            return Ok(photoTag);
 
         }
 
-        // PUT api/<AlbumPhotoController>/5
+        // PUT api/<PhotoTagController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] AlbumPhotoModel value)
+        public async Task<ActionResult> Put(int id, [FromBody] PhotoTagModel value)
         {
             try
             {
@@ -96,17 +93,17 @@ namespace WebAPI.Controllers
             return Ok(value);
         }
 
-        // DELETE api/<AlbumPhotoController>/5
+        // DELETE api/<PhotoTagController>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var albumPhoto = await _service.GetByIdAsync(id);
-            if (albumPhoto == null)
+            var photoTag = await _service.GetByIdAsync(id);
+            if (photoTag == null)
             {
                 return NotFound();
             }
             await _service.DeleteAsync(id);
-            return Ok(albumPhoto);
+            return Ok(photoTag);
         }
     }
 }
