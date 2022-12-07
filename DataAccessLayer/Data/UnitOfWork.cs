@@ -18,6 +18,7 @@ namespace DataAccessLayer.Data
         private PhotoTagRepository photoTagRepository;
         private TagRepository tagRepository;
         private UserRepository userRepository;
+        private ReportRepository reportRepository;
 
 
         public UnitOfWork(InternetPhotoAlbumDbContext context)
@@ -106,6 +107,18 @@ namespace DataAccessLayer.Data
                     photoRepository = new PhotoRepository(dbContext);
                 }
                 return photoRepository;
+            }
+        }
+
+        public IReportRepository ReportRepository
+        {
+            get
+            {
+                if (reportRepository == null)
+                {
+                    reportRepository = new ReportRepository(dbContext);
+                }
+                return reportRepository;
             }
         }
 

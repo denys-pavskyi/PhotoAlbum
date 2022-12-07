@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Interfaces
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IReportRepository: IRepository<Report>
     {
-        Task<IEnumerable<User>> GetAllWithDetailsAsync();
-        Task<User> GetByIdWithDetailsAsync(int id);
+        Task<IEnumerable<Report>> GetAllWithDetailsAsync();
+        Task<Report> GetByIdWithDetailsAsync(int id);
     }
 }

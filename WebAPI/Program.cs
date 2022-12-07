@@ -56,6 +56,7 @@ builder.Services.AddScoped<IPhotoService, PhotoService>();
 builder.Services.AddScoped<IPhotoTagService, PhotoTagService>();
 builder.Services.AddScoped<ITagService, TagService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IReportService, ReportService>();
 
 
 var app = builder.Build();

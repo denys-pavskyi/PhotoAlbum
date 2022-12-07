@@ -21,7 +21,6 @@ namespace DataAccessLayer.Interfaces
 
         void Update(TEntity entity);
         Task<IEnumerable<TEntity>> GetAllWithNoTrackingAsync();
-        Task<IEnumerable<TEntity>> GetAllWithDetailsAsync();
-        Task<TEntity> GetByIdWithDetailsAsync(int id);
+        
     }
 }

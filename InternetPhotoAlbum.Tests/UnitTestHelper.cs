@@ -74,6 +74,11 @@ namespace InternetPhotoAlbum.Tests
                     new User { Id = 1,UserName = "Username1",  FirstName="FirstName1", LastName = "LastName1", Password="P@ssw0rd1", RegistrationDate = new DateTime(2021,5,3), EmailAddress="user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User },
                     new User { Id = 2, UserName = "Username2", FirstName = "FirstName2", LastName = "LastName2", Password = "P@ssw0rd2", RegistrationDate = new DateTime(2022, 10,13), EmailAddress = "user2@gmail.com", BirthDate = new DateTime(1996, 10,17), Role = Role.Admin }
             );
+
+            context.Reports.AddRange(
+                    new Report { Id = 1, Comment = "comment1", PhotoId = 1, Status = ReportStatus.OnReview, UserId = 1},
+                    new Report { Id = 2, Comment = "comment2", PhotoId = 2, Status = ReportStatus.Declined, UserId = 2 }
+                );
             context.SaveChanges();
 
         }

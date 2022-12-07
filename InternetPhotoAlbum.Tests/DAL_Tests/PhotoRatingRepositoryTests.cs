@@ -98,7 +98,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
         }
 
         [Test]
-        public async Task AlbumPhotoRepository_GetByIdWithDetailsAsync_ReturnsWithIncludedEntities()
+        public async Task PhotoRatingRepository_GetByIdWithDetailsAsync_ReturnsWithIncludedEntities()
         {
             using var context = new InternetPhotoAlbumDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -124,7 +124,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
         }
 
         [Test]
-        public async Task AlbumPhotoRepository_GetAllWithDetailsAsync_ReturnsWithIncludedEntities()
+        public async Task PhotoRatingRepository_GetAllWithDetailsAsync_ReturnsWithIncludedEntities()
         {
             using var context = new InternetPhotoAlbumDbContext(UnitTestHelper.GetUnitTestDbOptions());
 

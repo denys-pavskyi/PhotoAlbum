@@ -9,5 +9,7 @@ namespace DataAccessLayer.Interfaces
 {
     public interface IPhotoRatingRepository: IRepository<PhotoRating>
     {
+        Task<IEnumerable<PhotoRating>> GetAllWithDetailsAsync();
+        Task<PhotoRating> GetByIdWithDetailsAsync(int id);
     }
 }

@@ -15,6 +15,7 @@ namespace DataAccessLayer.Interfaces
         IPhotoTagRepository PhotoTagRepository { get; }
         ITagRepository TagRepository { get; }
         IUserRepository UserRepository { get; }
+        IReportRepository ReportRepository { get; }
         Task SaveAsync();
     }
 }

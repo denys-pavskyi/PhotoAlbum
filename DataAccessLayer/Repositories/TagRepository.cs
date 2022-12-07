@@ -57,20 +57,6 @@ namespace DataAccessLayer.Repositories
 
         }
 
-        public async Task<Tag> GetByIdWithDetailsAsync(int id)
-        {
-            return await _context.Tags
-                .Include(x => x.PhotoTags)
-                .FirstOrDefaultAsync(x => x.Id == id);
-
-        }
-
-        public async Task<IEnumerable<Tag>> GetAllWithDetailsAsync()
-        {
-            return await _context.Tags
-                .Include(x => x.PhotoTags)
-                .ToListAsync();
-        }
 
         public async Task<IEnumerable<Tag>> GetAllWithNoTrackingAsync()
         {

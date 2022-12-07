@@ -24,7 +24,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
             var mockUnitOfWork = new Mock<IUnitOfWork>();
 
             mockUnitOfWork
-                .Setup(x => x.TagRepository.GetAllWithDetailsAsync())
+                .Setup(x => x.TagRepository.GetAllAsync())
                 .ReturnsAsync(GetTestTagEntities.AsEnumerable());
 
             var tagService = new TagService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
@@ -44,7 +44,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
             var mockUnitOfWork = new Mock<IUnitOfWork>();
 
             mockUnitOfWork
-                .Setup(m => m.TagRepository.GetByIdWithDetailsAsync(It.IsAny<int>()))
+                .Setup(m => m.TagRepository.GetByIdAsync(It.IsAny<int>()))
                 .ReturnsAsync(GetTestTagEntities.First());
 
             var tagService = new TagService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
@@ -163,24 +163,19 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
 
         #region Data
 
-        public List<TagModel> GetTestTagModels =>
-            new List<TagModel>()
+        public static List<TagModel> GetTestTagModels =>
+            new()
             {
-                new TagModel{ Id = 1, Title = "title1", PhotoTagIds = new[]{1,2} },
-                new TagModel{ Id = 2, Title = "title2", PhotoTagIds = new List<int>() }
+                new TagModel{ Id = 1, Title = "title1"},
+                new TagModel{ Id = 2, Title = "title2"}
                 
             };
 
-        public List<Tag> GetTestTagEntities =>
-           new List<Tag>()
+        public static List<Tag> GetTestTagEntities =>
+           new()
            {
-                new Tag{ Id = 1, Title = "title1", PhotoTags = new List<PhotoTag>(){
-                    new PhotoTag{Id = 1},
-                    new PhotoTag{Id = 2}
-                    }
-                },
-                new Tag{ Id = 2, Title = "title2"
-                }
+                new Tag{ Id = 1, Title = "title1"},
+                new Tag{ Id = 2, Title = "title2"}
            };
 
         #endregion

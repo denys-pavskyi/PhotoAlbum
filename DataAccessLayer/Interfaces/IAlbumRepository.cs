@@ -9,5 +9,7 @@ namespace DataAccessLayer.Interfaces
 {
     public interface IAlbumRepository: IRepository<Album>
     {
+        Task<IEnumerable<Album>> GetAllWithDetailsAsync();
+        Task<Album> GetByIdWithDetailsAsync(int id);
     }
 }

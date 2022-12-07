@@ -12,7 +12,5 @@ namespace DataAccessLayer.Entities
     {
         [Required,  StringLength(30)]
         public string Title { get; set; }
-
-        public ICollection<PhotoTag> PhotoTags { get; set; }
     }
 }

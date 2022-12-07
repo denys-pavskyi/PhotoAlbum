@@ -33,7 +33,6 @@ namespace BuisnessLogicLayer
                 .ReverseMap();
 
             CreateMap<Tag, TagModel>()
-                .ForMember(tm => tm.PhotoTagIds, t => t.MapFrom(x => x.PhotoTags.Select(x => x.Id)))
                 .ReverseMap();
 
             CreateMap<User, UserModel>()
@@ -42,6 +41,8 @@ namespace BuisnessLogicLayer
                 .ForMember(um => um.AlbumIds, u => u.MapFrom(x => x.Albums.Select(x => x.Id)))
                 .ReverseMap();
 
+            CreateMap<Report, ReportModel>()
+                .ReverseMap();
 
 
         }

@@ -22,6 +22,7 @@ namespace DataAccessLayer.Data
         public DbSet<PhotoTag> PhotoTags { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -54,8 +55,7 @@ namespace DataAccessLayer.Data
 
             modelBuilder.Entity<PhotoTag>()
                 .HasOne(x => x.Photo).WithMany(x => x.PhotoTags).HasForeignKey(x => x.PhotoId).OnDelete(DeleteBehavior.NoAction);
-            modelBuilder.Entity<PhotoTag>()
-                .HasOne(x => x.Tag).WithMany(x => x.PhotoTags).HasForeignKey(x => x.PhotoId).OnDelete(DeleteBehavior.NoAction);
+           
 
 
             modelBuilder.Entity<User>()
@@ -67,6 +67,11 @@ namespace DataAccessLayer.Data
 
 
 
+
+            /*modelBuilder.Entity<Tag>().HasData(
+                    new Tag {  Title = "Sightseeing"},
+
+                );*/
 
 
         }

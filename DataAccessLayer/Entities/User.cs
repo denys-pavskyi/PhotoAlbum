@@ -39,6 +39,7 @@ namespace DataAccessLayer.Entities
         public ICollection<PhotoRating> PhotoRatings { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Album> Albums { get; set; }
+        public ICollection<Report> Reports { get; set; }
     }
      
     public enum Role

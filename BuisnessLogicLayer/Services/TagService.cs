@@ -40,13 +40,13 @@ namespace BuisnessLogicLayer.Services
 
         public async Task<IEnumerable<TagModel>> GetAllAsync()
         {
-            IEnumerable<Tag> unmappedTags = await _unitOfWork.TagRepository.GetAllWithDetailsAsync();
+            IEnumerable<Tag> unmappedTags = await _unitOfWork.TagRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<TagModel>>(unmappedTags);
         }
 
         public async Task<TagModel> GetByIdAsync(int id)
         {
-            var unmappedTag = await _unitOfWork.TagRepository.GetByIdWithDetailsAsync(id);
+            var unmappedTag = await _unitOfWork.TagRepository.GetByIdAsync(id);
             return _mapper.Map<TagModel>(unmappedTag);
         }
 

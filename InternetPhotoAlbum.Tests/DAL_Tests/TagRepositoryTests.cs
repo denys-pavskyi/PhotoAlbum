@@ -90,54 +90,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             }).Using(new TagEqualityComparer()), message: "Update method works incorrect");
         }
 
-        [Test]
-        public async Task AlbumPhotoRepository_GetByIdWithDetailsAsync_ReturnsWithIncludedEntities()
-        {
-            using var context = new InternetPhotoAlbumDbContext(UnitTestHelper.GetUnitTestDbOptions());
-
-            var tagRepository = new TagRepository(context);
-
-            var tag =  await tagRepository.GetByIdWithDetailsAsync(1);
-
-            var expectedPhotoTags = ExpectedPhotoTags.Where(x => x.TagId == tag.Id).Distinct().OrderBy(i => i.Id);
-            var expected = ExpectedTags.FirstOrDefault(x => x.Id == 1);
-
-            Assert.That(tag,
-                Is.EqualTo(expected).Using(new TagEqualityComparer()), message: "GetByIdWithDetailsAsync method works incorrect");
-
-            Assert.That(tag.PhotoTags,
-                Is.EqualTo(expectedPhotoTags).Using(new PhotoTagEqualityComparer()), message: "GetByIdWithDetailsAsync method doesnt't return included entities");
-
-
-
-        }
-
-        [Test]
-        public async Task AlbumPhotoRepository_GetAllWithDetailsAsync_ReturnsWithIncludedEntities()
-        {
-            using var context = new InternetPhotoAlbumDbContext(UnitTestHelper.GetUnitTestDbOptions());
-
-            var tagRepository = new TagRepository(context);
-
-            var tags = await tagRepository.GetAllWithDetailsAsync();
-
-            Assert.That(tags,
-                Is.EqualTo(ExpectedTags).Using(new TagEqualityComparer()), message: "GetAllWithDetailsAsync method works incorrect");
-
-            var tmp = tags.SelectMany(x => x.PhotoTags).OrderBy(i => i.Id).ToList();
-
-            Assert.That(tags.SelectMany(x => x.PhotoTags).OrderBy(i => i.Id),
-               Is.EqualTo(ExpectedPhotoTags).Using(new PhotoTagEqualityComparer()), message: "GetByIdWithDetailsAsync method doesnt't return included entities");
-        }
-
-
-
-        public static IEnumerable<PhotoTag> ExpectedPhotoTags =>
-            new[]
-            {
-                new PhotoTag { Id = 1, PhotoId = 1, TagId = 1},
-                new PhotoTag { Id = 2, PhotoId = 2, TagId = 2 }
-            };
+        
 
         public static IEnumerable<Tag> ExpectedTags =>
                 new[]

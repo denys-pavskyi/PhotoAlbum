@@ -10,5 +10,7 @@ namespace DataAccessLayer.Interfaces
 {
     public interface IPhotoRepository : IRepository<Photo>
     {
+        Task<IEnumerable<Photo>> GetAllWithDetailsAsync();
+        Task<Photo> GetByIdWithDetailsAsync(int id);
     }
 }

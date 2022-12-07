@@ -11,7 +11,5 @@ namespace BuisnessLogicLayer.Models
         public int Id { get; set; }
         public string Title { get; set; }
 
-        public ICollection<int>? PhotoTagIds { get; set; }
-
     }
 }

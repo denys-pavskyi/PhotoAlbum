@@ -9,5 +9,7 @@ namespace DataAccessLayer.Interfaces
 {
     public interface IPhotoTagRepository : IRepository<PhotoTag>
     {
+        Task<IEnumerable<PhotoTag>> GetAllWithDetailsAsync();
+        Task<PhotoTag> GetByIdWithDetailsAsync(int id);
     }
 }

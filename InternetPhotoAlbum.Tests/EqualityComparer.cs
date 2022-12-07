@@ -169,4 +169,29 @@ namespace InternetPhotoAlbum.Tests
             return obj.GetHashCode();
         }
     }
+
+    internal class ReportEqualityComparer : IEqualityComparer<Report>
+    {
+        public bool Equals(Report? x, Report? y)
+        {
+            if (x == null && y == null)
+                return true;
+            if (x == null || y == null)
+                return false;
+
+            return x.Id == y.Id &&
+                x.Status == y.Status &&
+                x.Comment == y.Comment &&
+                x.UserId == y.UserId &&
+                x.PhotoId == y.PhotoId;
+
+        }
+
+        
+
+        public int GetHashCode([DisallowNull] Report obj)
+        {
+            return obj.GetHashCode();
+        }
+    }
 }

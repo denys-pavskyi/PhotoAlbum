@@ -166,5 +166,29 @@ namespace BuisnessLogicLayer.Validation
             }
         }
 
+        public static void ReportModelValidation(ReportModel model)
+        {
+            if (model == null)
+            {
+                throw new InternetPhotoAlbumException("Report was null");
+            }
+
+            if (model.Comment != null && model.Comment == String.Empty)
+            {
+                throw new InternetPhotoAlbumException("Wrong report comment");
+            }
+
+            if (model.UserId < 0)
+            {
+                throw new InternetPhotoAlbumException("Wrong userId");
+            }
+
+            if (model.PhotoId < 0)
+            {
+                throw new InternetPhotoAlbumException("Wrong photoId");
+            }
+
+        }
+
     }
 }
