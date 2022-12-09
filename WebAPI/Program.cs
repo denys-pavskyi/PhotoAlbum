@@ -61,9 +61,7 @@ builder.Services.AddSingleton(mapperConfiguration.CreateMapper());
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddTransient<ITagService>(cs =>
-            new TagService(cs.GetService<IUnitOfWork>(), cs.GetService<IMapper>())
-            );
+
 builder.Services.AddScoped<IAlbumService, AlbumService>();
 builder.Services.AddScoped<IPhotoRatingService, PhotoRatingService>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();

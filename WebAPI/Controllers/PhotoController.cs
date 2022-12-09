@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
 
         // GET: api/<PhotoController>
         [HttpGet]
-        [Authorize(Policy = "OnlyNonBannedUser")]
+        //[Authorize(Policy = "OnlyNonBannedUser")]
         public async Task<ActionResult<IEnumerable<PhotoModel>>> Get()
         {
             var claimsIdentity = HttpContext.User.Identity as ClaimsIdentity;
