@@ -1,6 +1,8 @@
 ﻿using BuisnessLogicLayer.Interfaces;
 using BuisnessLogicLayer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,8 +21,18 @@ namespace WebAPI.Controllers
 
         // GET: api/<PhotoController>
         [HttpGet]
+        [Authorize(Policy = "OnlyNonBannedUser")]
         public async Task<ActionResult<IEnumerable<PhotoModel>>> Get()
         {
+            var claimsIdentity = HttpContext.User.Identity as ClaimsIdentity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim == null)
+            {
+
+                return Unauthorized("Invalid user");
+            }
+
+
             var photos = await _service.GetAllAsync();
 
             if (photos == null)

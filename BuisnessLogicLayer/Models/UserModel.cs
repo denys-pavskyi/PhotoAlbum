@@ -16,6 +16,7 @@ namespace BuisnessLogicLayer.Models
         public string EmailAddress { get; set; }
         public string FirstName { get; set; }
         public string? LastName { get; set; }
+        public string PasswordSalt { get; set; }
 
         public DateTime BirthDate { get; set; }
 
@@ -23,6 +24,7 @@ namespace BuisnessLogicLayer.Models
         public DateTime RegistrationDate { get; set; }
 
         public Role Role { get; set; }
+        public UserStatus UserStatus { get; set; }
 
         public ICollection<int>? PhotoRatingIds { get; set; }
         public ICollection<int>? PhotoIds { get; set; }

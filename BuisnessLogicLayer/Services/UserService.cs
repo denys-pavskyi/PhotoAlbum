@@ -9,6 +9,8 @@ using BuisnessLogicLayer.Models;
 using DataAccessLayer.Interfaces;
 using BuisnessLogicLayer.Validation;
 using DataAccessLayer.Entities;
+using System.Security.Cryptography;
+using BuisnessLogicLayer.Helpers;
 
 namespace BuisnessLogicLayer.Services
 {
@@ -26,6 +28,10 @@ namespace BuisnessLogicLayer.Services
         public async Task AddAsync(UserModel model)
         {
             ModelsValidation.UserModelValidation(model);
+
+            var passwordSalt = HashingHelper.CreateBase64Secret(128);
+            model.PasswordSalt = passwordSalt;
+            model.Password = HashingHelper.HashUsingPbkdf2(model.Password, model.PasswordSalt);
             var mappedUser = _mapper.Map<User>(model);
 
             await _unitOfWork.UserRepository.AddAsync(mappedUser);

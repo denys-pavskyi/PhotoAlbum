@@ -1,13 +1,18 @@
 using AutoMapper;
 using BuisnessLogicLayer;
+using BuisnessLogicLayer.Helpers;
 using BuisnessLogicLayer.Interfaces;
 using BuisnessLogicLayer.Services;
 using DataAccessLayer.Data;
+using DataAccessLayer.Entities;
 using DataAccessLayer.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using WebAPI.Handlers;
+using WebAPI.Requirements;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,13 +28,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     {
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        ValidIssuer = TokenHelper.Issuer,
+        ValidAudience = TokenHelper.Audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(TokenHelper.Secret))
+
     };
 });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("OnlyNonBannedUser", policy => {
+
+        policy.Requirements.Add(new UserStatusRequirement(UserStatus.Active));
+
+    });
+});
+builder.Services.AddSingleton<IAuthorizationHandler, UserBannedStatusHandler>();
 
 var connectionString = builder.Configuration.GetConnectionString("InternetPhotoAlbumDB");
 builder.Services.AddDbContext<InternetPhotoAlbumDbContext>(options =>
@@ -45,7 +60,6 @@ var mapperConfiguration = new MapperConfiguration(cfg =>
 builder.Services.AddSingleton(mapperConfiguration.CreateMapper());
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-//builder.Services.AddScoped<ITagService, TagService>();
 
 builder.Services.AddTransient<ITagService>(cs =>
             new TagService(cs.GetService<IUnitOfWork>(), cs.GetService<IMapper>())
@@ -57,6 +71,7 @@ builder.Services.AddScoped<IPhotoTagService, PhotoTagService>();
 builder.Services.AddScoped<ITagService, TagService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 
 
 var app = builder.Build();

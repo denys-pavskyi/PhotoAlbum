@@ -15,9 +15,11 @@ namespace DataAccessLayer.Entities
         [Required, StringLength(40)]
         public string UserName { get; set; }
 
-        [Required, StringLength(50)]
+        [Required]
         public string Password { get; set; }
 
+        [Required]
+        public string PasswordSalt { get; set; }
 
         [Required ,EmailAddress]
         public string EmailAddress { get; set; }    
@@ -36,6 +38,12 @@ namespace DataAccessLayer.Entities
         [Required]
         public Role Role { get; set; }
 
+        [Required]
+        public UserStatus UserStatus { get; set; }
+
+        [Required]
+
+
         public ICollection<PhotoRating> PhotoRatings { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Album> Albums { get; set; }
@@ -48,5 +56,10 @@ namespace DataAccessLayer.Entities
         User
     }
 
+    public enum UserStatus
+    {
+        Active,
+        Banned
+    }
     
 }
