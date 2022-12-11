@@ -12,9 +12,18 @@ import { AlbumsListComponent } from './components/albums-list/albums-list.compon
 import { AlbumComponent } from './components/album/album.component';
 import { ReportsListComponent } from './components/reports-list/reports-list.component';
 import { ReportComponent } from './components/report/report.component';
-import { PhotoComponent } from './components/photo/photo.component';
+import { PhotoElemComponent } from './components/photo-elem/photo-elem.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { UploadPhotoComponent } from './components/upload-photo/upload-photo.component';
+import { PhotoComponent } from './components/photo/photo.component';
+import { PhotoPreviewComponent } from './components/photo-preview/photo-preview.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { AddToAlbumComponent } from './components/add-to-album/add-to-album.component';
+import { ReportPhotoComponent } from './components/report-photo/report-photo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { CommonModule } from '@angular/common';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -27,19 +36,29 @@ import { UploadPhotoComponent } from './components/upload-photo/upload-photo.com
     AlbumComponent,
     ReportsListComponent,
     ReportComponent,
+    PhotoElemComponent,
+    NavMenuComponent,
     PhotoComponent,
-    NavMenuComponent
+    PhotoPreviewComponent,
+    ModalComponent,
+    AddToAlbumComponent,
+    ReportPhotoComponent,
+    UploadPhotoComponent,
+    FileUploadComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule,
+    BrowserModule, HttpClientModule, 
+    ReactiveFormsModule, FormsModule, BrowserAnimationsModule,
+    CommonModule,
 
     RouterModule.forRoot([
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'profile', component: ProfileComponent},
-      {path: 'upload-photo', component: UploadPhotoComponent}
-
+      {path: 'upload-photo', component: UploadPhotoComponent},
+      {path: 'reports-list', component: ReportsListComponent},
+      {path: 'albums-list', component: AlbumsListComponent}
     ])
   ],
   providers: [],

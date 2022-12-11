@@ -1,0 +1,7 @@
+.uploadPhotoPage{
+    min-height: 100vh;
+}
+
+.validationFailed{
+    color:red;
+}

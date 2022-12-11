@@ -1,2 +1,62 @@
-<p>home works!</p>
-<img src="/assets/images/db/animals1.jpg" height="200px">
+<div class="container-fluid photosPageContainer">
+    <div class="row d-flex justify-content-center ">
+        <div class="col-5  justify-content-center">
+
+            <div class="row">
+                <div class="col-12">
+                    <span class="photosList"><h1>Photos List</h1></span>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-auto">
+                    <input class="searchInput" type="text" placeholder="Search">
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-info">Search</button>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+
+    <div class="row photosDiv">
+        <div class="col-12">
+            <p *ngIf="loading" class="text-center text-lg">
+                Loading...
+            </p>
+        
+            <p *ngIf="!loading && photoService.photos.length<1" class="text-center text-lg">
+                No Photo was found
+            </p>
+        </div>
+    </div>
+
+    
+
+
+
+    <div class="row photosDiv d-flex justify-content-center">
+        <div class="col-12">
+            <div class="row d-flex justify-content-center" *ngIf="photoService.photos">
+                <div class="col-lg-5 photoElementDiv" *ngFor="let photo of photos$ | async ; let i = index">
+                    <button class="btn btn-link textNoLinkStyle" (click)="logToConsole(i)">
+                        <app-photo-elem [photo] = "photo" [modalsService]="modalsService"></app-photo-elem>
+                    </button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <app-modal *ngIf="modalsService.isAddingToAlbum$ | async" title="Add to album">
+        <app-add-to-album></app-add-to-album>
+    </app-modal>
+    
+    <app-modal *ngIf="modalsService.isReporting$ | async" title="Report photo">
+        <app-report-photo></app-report-photo>
+    </app-modal>
+</div>  

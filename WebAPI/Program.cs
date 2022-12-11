@@ -36,6 +36,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        name: "AllowOrigin",
+        builder => builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("OnlyNonBannedUser", policy => {
@@ -75,7 +84,7 @@ builder.Services.AddScoped<ILoginService, LoginService>();
 var app = builder.Build();
 
 
-
+app.UseCors("AllowOrigin");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -86,7 +95,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

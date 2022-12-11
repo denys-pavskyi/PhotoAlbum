@@ -1,1 +1,19 @@
-<p>upload-photo works!</p>
+<div class="container-fluid uploadPhotoPage">
+    <form [formGroup]="form"  novalidate>
+        <div>
+            <label>Title: </label>
+            <input type="text" name="title" formControlName="title">
+            <div class="validationFailed" *ngIf="form.controls['title'].invalid"> Title is not valid</div>
+        </div><br>
+        <div>
+            <label>Description: </label>
+            <input type="text" name="description" formControlName="description">
+            <div class="validationFailed" *ngIf="form.controls['description'].invalid"> Description is not valid</div>
+            
+        </div><br>
+
+        <app-file-upload formControlName="image"></app-file-upload>
+        
+        <button (click)="uploadPhoto()">Confirm</button>
+    </form>
+</div>

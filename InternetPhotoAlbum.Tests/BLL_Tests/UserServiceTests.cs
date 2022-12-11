@@ -193,11 +193,11 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
             new List<UserModel>()
             {
                 new UserModel{Id= 1, FirstName = "f1", LastName = "f2", BirthDate  = new DateTime(1990,1,1)
-                , RegistrationDate = new DateTime(2020,1,1), EmailAddress = "user1@gmail.com", Password = "pass1",
+                , RegistrationDate = new DateTime(2020,1,1), EmailAddress = "user1@gmail.com", Password = "pass1",PasswordSalt = "",
                  Role = Role.User, UserName = "username1", PhotoIds = new[]{1,2}, AlbumIds = new List<int>(), PhotoRatingIds = new List<int>() },
 
                 new UserModel{Id= 2, FirstName = "f2", LastName = "f2", BirthDate  = new DateTime(1990,2,2)
-                , RegistrationDate = new DateTime(2020,2,2), EmailAddress = "user2@gmail.com", Password = "pass2",
+                , RegistrationDate = new DateTime(2020,2,2), EmailAddress = "user2@gmail.com", Password = "pass2",PasswordSalt = "",
                  Role = Role.Admin, UserName = "username2", PhotoIds = new List<int>(), AlbumIds = new List<int>(), PhotoRatingIds = new List<int>() }
 
 
@@ -208,7 +208,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
            new List<User>()
            {
                new User{Id= 1, FirstName = "f1", LastName = "f2", BirthDate  = new DateTime(1990,1,1)
-                , RegistrationDate = new DateTime(2020,1,1), EmailAddress = "user1@gmail.com", Password = "pass1",
+                , RegistrationDate = new DateTime(2020,1,1), EmailAddress = "user1@gmail.com", Password = "pass1", PasswordSalt = "",
                  Role = Role.User, UserName = "username1", Albums = new List<Album>(), PhotoRatings = new List<PhotoRating>(),
                     Photos = new List<Photo>(){
                         new Photo{Id = 1},
@@ -217,7 +217,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
                },
 
                 new User{Id= 2, FirstName = "f2", LastName = "f2", BirthDate  = new DateTime(1990,2,2)
-                , RegistrationDate = new DateTime(2020,2,2), EmailAddress = "user2@gmail.com", Password = "pass2",
+                , RegistrationDate = new DateTime(2020,2,2), EmailAddress = "user2@gmail.com", Password = "pass2",PasswordSalt = "",
                  Role = Role.Admin, UserName = "username2", Albums = new List<Album>(), PhotoRatings = new List<PhotoRating>(), Photos = new List<Photo>() }
 
 

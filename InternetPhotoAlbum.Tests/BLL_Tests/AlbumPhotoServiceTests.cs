@@ -168,16 +168,16 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
 
         #region Data
 
-        public List<AlbumPhotoModel> GetTestAlbumPhotoModels =>
-            new List<AlbumPhotoModel>()
+        public static List<AlbumPhotoModel> GetTestAlbumPhotoModels =>
+            new()
             {
                 new AlbumPhotoModel{ Id = 1, AlbumId= 1, PhotoId = 1, AdditionDate = new DateTime(2021,1,1) },
                 new AlbumPhotoModel{ Id = 2, AlbumId= 2, PhotoId = 2, AdditionDate = new DateTime(2021,2,2) },
                 new AlbumPhotoModel{ Id = 3, AlbumId= 2, PhotoId = 3, AdditionDate = new DateTime(2021,3,3) }
             };
 
-        public List<AlbumPhoto> GetTestAlbumPhotoEntities =>
-           new List<AlbumPhoto>()
+        public static List<AlbumPhoto> GetTestAlbumPhotoEntities =>
+           new()
            {
                 new AlbumPhoto{ Id = 1, AlbumId= 1, PhotoId = 1, AdditionDate = new DateTime(2021,1,1) },
                 new AlbumPhoto{ Id = 2, AlbumId= 2, PhotoId = 2, AdditionDate = new DateTime(2021,2,2) },

@@ -1,0 +1,39 @@
+.photoImg{
+    width:100%;
+    max-width: 600px;
+    max-height: 600px;
+    margin:5px 5px -5px;
+    border: 2px solid #B0A295;
+    border-radius: 3em 6em 0px 0px;
+}
+.fit-content-class{
+    height:fit-content;
+    padding: 0px 0px 0px 0px;
+}
+.photoDetails{
+    background-color: #938E94;
+    height: 200px;
+    width: 100%;
+    border-radius: 0em 0em 3em 6em;
+}
+
+.photoElemContainer{
+    width: 100%;
+    overflow: hidden;
+    padding: 0px 0px 0px 0px;
+}
+
+.descriptionDiv{
+    width:auto;
+    height: 6ch;
+    margin-right:0px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.feedBackButton{
+    position: relative;
+    top: 15;
+    border: 1px solid black;
+    border-radius: 50%;
+}

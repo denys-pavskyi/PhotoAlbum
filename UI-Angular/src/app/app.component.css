@@ -1,0 +1,13 @@
+footer{
+    height: 200px;
+    background-color: grey;
+    padding-top: 30px;
+    width:100%;
+}
+
+.contentContainer{
+    background-color: #EDD7CC;
+}
+body{
+    background-color: #EDD7CC;
+}

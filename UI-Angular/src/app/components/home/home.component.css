@@ -1,0 +1,42 @@
+.photoElementDiv{
+    height:auto;
+    background-color: #B0A295;
+    border: 1px solid #B0A295;
+    border-radius: 3%;
+    margin-bottom: 5px;
+    margin-right: 6px;
+    padding: 0px;
+}
+
+.photosList{
+    text-align: center;
+}
+
+.photosDiv{
+    margin-top: 10px;
+    overflow:hidden;
+    padding-right: 10px;
+    height: max-content;
+}
+
+.photosPageContainer{
+    min-height: 800px;
+}
+
+.searchInput{
+    background-color: #859DB1;
+    border-radius: 4%;
+    border: 1px solid lightgrey;
+    color:white;
+    height:40px;
+}
+
+.textNoLinkStyle{
+    color: #05396B;
+    text-decoration: none;
+}
+
+.textNoLinkStyle:hover{
+    color: white;
+    text-decoration: underline;
+}

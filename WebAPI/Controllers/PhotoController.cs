@@ -19,18 +19,13 @@ namespace WebAPI.Controllers
             _service = service;
         }
 
-        // GET: api/<PhotoController>
+        // GET: api/photos
         [HttpGet]
+        //[Route("photos")]
         //[Authorize(Policy = "OnlyNonBannedUser")]
         public async Task<ActionResult<IEnumerable<PhotoModel>>> Get()
         {
-            var claimsIdentity = HttpContext.User.Identity as ClaimsIdentity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            if (claim == null)
-            {
-
-                return Unauthorized("Invalid user");
-            }
+            
 
 
             var photos = await _service.GetAllAsync();
@@ -49,6 +44,7 @@ namespace WebAPI.Controllers
 
         // GET api/<PhotoController>/5
         [HttpGet("{id}")]
+        //[Route("photo/{id}")]
         public async Task<ActionResult<PhotoModel>> GetById(int id)
         {
             var photo = await _service.GetByIdAsync(id);
@@ -66,6 +62,15 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] PhotoModel photo)
         {
+
+            var claimsIdentity = HttpContext.User.Identity as ClaimsIdentity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim == null)
+            {
+
+                return Unauthorized("Invalid user");
+            }
+
             if (photo == null)
             {
                 return BadRequest();

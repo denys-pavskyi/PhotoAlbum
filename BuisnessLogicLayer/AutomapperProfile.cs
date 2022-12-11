@@ -24,6 +24,7 @@ namespace BuisnessLogicLayer
                 .ForMember(pm => pm.PhotoRatingIds, p => p.MapFrom(x => x.PhotoRatings.Select(x => x.Id)))
                 .ForMember(pm => pm.PhotoTagsIds, p => p.MapFrom(x => x.PhotoTags.Select(x => x.Id)))
                 .ForMember(pm => pm.AlbumPhotoIds, p => p.MapFrom(x => x.AlbumPhotos.Select(x => x.Id)))
+                .ForMember(pm => pm.UserName, p => p.MapFrom(x => x.User.UserName))
                 .ReverseMap();
 
             CreateMap<PhotoRating, PhotoRatingModel>()

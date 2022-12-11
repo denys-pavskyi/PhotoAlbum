@@ -74,7 +74,7 @@ namespace DataAccessLayer.Data
                 .HasOne(x => x.User).WithMany(x => x.Reports).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.NoAction);
 
 
-            SeedData(modelBuilder);
+            //SeedData(modelBuilder);
 
 
             
@@ -145,7 +145,7 @@ namespace DataAccessLayer.Data
             modelBuilder.Entity<Photo>().HasData(
                     new Photo { Id = 1, Title = "Deer",
                         UploadDate = new DateTime(2021,2,3),
-                        TotalRating = 5d, 
+                        TotalRating = 0d, 
                         Description= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
                         PhotoUrl = "/assets/images/db/animals1.jpg",
                         UserId = 1
@@ -155,7 +155,7 @@ namespace DataAccessLayer.Data
                         Id = 2,
                         Title = "Car in woods",
                         UploadDate = new DateTime(2022, 1, 3),
-                        TotalRating = 3d,
+                        TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
                         PhotoUrl = "/assets/images/db/car1.jpg",
                         UserId = 3
@@ -165,7 +165,7 @@ namespace DataAccessLayer.Data
                         Id = 3,
                         Title = "Japanese city",
                         UploadDate = new DateTime(2021, 1, 1),
-                        TotalRating = 4d,
+                        TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
                         PhotoUrl = "/assets/images/db/city4.jpg",
                         UserId = 1
@@ -175,7 +175,7 @@ namespace DataAccessLayer.Data
                         Id = 4,
                         Title = "Kyiv",
                         UploadDate = new DateTime(2021, 2, 3),
-                        TotalRating = 5d,
+                        TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
                         PhotoUrl = "/assets/images/db/ukraine1.jpg",
                         UserId = 2
@@ -185,7 +185,7 @@ namespace DataAccessLayer.Data
                         Id = 5,
                         Title = "Field",
                         UploadDate = new DateTime(2018, 11,16),
-                        TotalRating = 5d,
+                        TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
                         PhotoUrl = "/assets/images/db/ukraine3.jpg",
                         UserId = 2
@@ -193,21 +193,21 @@ namespace DataAccessLayer.Data
                     new Photo
                     {
                         Id = 6,
-                        Title = "Mercedes",
+                        Title = "KPI",
                         UploadDate = new DateTime(2015, 6, 22),
-                        TotalRating = 2.5d,
+                        TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/cars1.jpg",
+                        PhotoUrl = "/assets/images/db/ukraine6.jpg",
                         UserId = 1
                     },
                     new Photo
                     {
                         Id = 7,
-                        Title = "Porsche",
+                        Title = "Ukrainian hills",
                         UploadDate = new DateTime(2022, 3, 22),
-                        TotalRating = 2.5d,
+                        TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/car2.jpg",
+                        PhotoUrl = "/assets/images/db/ukraine4.png",
                         UserId = 3
                     },
                     new Photo
@@ -215,7 +215,7 @@ namespace DataAccessLayer.Data
                         Id = 8,
                         Title = "Japan mountain",
                         UploadDate = new DateTime(2019, 6, 17),
-                        TotalRating = 3d,
+                        TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
                         PhotoUrl = "/assets/images/db/mountain1.jpg",
                         UserId = 1
@@ -225,16 +225,210 @@ namespace DataAccessLayer.Data
                         Id = 9,
                         Title = "Hills",
                         UploadDate = new DateTime(2018, 4, 19),
-                        TotalRating = 4.7d,
+                        TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
                         PhotoUrl = "/assets/images/db/nature1.jpg",
                         UserId = 1
+                    },
+                    new Photo
+                    {
+                        Id = 10,
+                        Title = "Bird",
+                        UploadDate = new DateTime(2020, 1, 1),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/animals1.jpg",
+                        UserId = 2
+                    },
+                    new Photo
+                    {
+                        Id = 11,
+                        Title = "Fox",
+                        UploadDate = new DateTime(2022, 2,7),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/animals1.jpg",
+                        UserId = 2
+                    },
+                    new Photo
+                    {
+                        Id = 12,
+                        Title = "Arctic Fox",
+                        UploadDate = new DateTime(2017, 2, 7),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/animals4.jpg",
+                        UserId = 2
+                    },
+                    new Photo
+                    {
+                        Id = 13,
+                        Title = "Fox",
+                        UploadDate = new DateTime(2018, 6, 6),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/animals5.jpg",
+                        UserId = 2
+                    },
+                    new Photo
+                    {
+                        Id = 14,
+                        Title = "Arctic fox",
+                        UploadDate = new DateTime(2022, 11,16),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/animals6.jpg",
+                        UserId = 2
+                    },
+                    new Photo
+                    {
+                        Id = 15,
+                        Title = "Lion",
+                        UploadDate = new DateTime(2022, 2, 25),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/animals7.jpg",
+                        UserId = 1
+                    },
+                    new Photo
+                    {
+                        Id = 16,
+                        Title = "Wolf",
+                        UploadDate = new DateTime(2022, 3, 3),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/animals8.jpg",
+                        UserId = 2
+                    },
+                    new Photo
+                    {
+                        Id = 17,
+                        Title = "City and building",
+                        UploadDate = new DateTime(2022, 2, 7),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/city1.jpg",
+                        UserId = 3
+                    },
+                    new Photo
+                    {
+                        Id = 18,
+                        Title = "New York",
+                        UploadDate = new DateTime(2021, 3, 8),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/city2.jpg",
+                        UserId = 3
+                    },
+                    new Photo
+                    {
+                        Id = 19,
+                        Title = "China, skyscrappers",
+                        UploadDate = new DateTime(2022, 2, 7),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/city3.jpg",
+                        UserId = 3
+                    },
+                    new Photo
+                    {
+                        Id = 20,
+                        Title = "Prague",
+                        UploadDate = new DateTime(2022, 2, 7),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/city5.jpg",
+                        UserId = 3
+                    },
+                    new Photo
+                    {
+                        Id = 21,
+                        Title = "New York busy streets",
+                        UploadDate = new DateTime(2022, 2, 7),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/city6.jpg",
+                        UserId = 3
+                    },
+                    new Photo
+                    {
+                        Id = 22,
+                        Title = "London",
+                        UploadDate = new DateTime(2022, 2, 7),
+                        TotalRating = 0d,
+                        Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                        PhotoUrl = "/assets/images/db/city7.jpg",
+                        UserId = 3
                     }
 
                 );
 
+            modelBuilder.Entity<Album>().HasData(
+                new Album
+                {
+                    Id = 1,
+                    NumberOfPictures = 3,
+                    UserId = 2,
+                    CreationDate = new DateTime(2022,12,11),
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                    Title = "Beatiful animals",
+                },
+                new Album
+                {
+                    Id = 2,
+                    NumberOfPictures = 4,
+                    UserId = 2,
+                    CreationDate = new DateTime(2022, 12, 12),
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
+                    Title = "Beatiful cities",
+                }
 
-                
+           );
+            modelBuilder.Entity<AlbumPhoto>().HasData(
+                new AlbumPhoto { 
+                    Id = 1,
+                    AlbumId = 1,
+                    PhotoId = 11,
+                    AdditionDate = new DateTime(2022,12,13)
+                },
+                new AlbumPhoto
+                {
+                    Id = 2,
+                    AlbumId = 1,
+                    PhotoId = 12,
+                    AdditionDate = new DateTime(2022, 12, 13)
+                },
+                new AlbumPhoto
+                {
+                    Id = 3,
+                    AlbumId = 1,
+                    PhotoId = 13,
+                    AdditionDate = new DateTime(2022, 12, 13)
+                },
+                new AlbumPhoto
+                {
+                    Id = 4,
+                    AlbumId = 2,
+                    PhotoId = 19,
+                    AdditionDate = new DateTime(2022, 12, 13)
+                },
+                new AlbumPhoto
+                {
+                    Id = 6,
+                    AlbumId = 2,
+                    PhotoId = 20,
+                    AdditionDate = new DateTime(2022, 12, 13)
+                },
+                new AlbumPhoto
+                {
+                    Id = 7,
+                    AlbumId = 2,
+                    PhotoId = 21,
+                    AdditionDate = new DateTime(2022, 12, 13)
+                }
+            );
+
+
 
         }
 

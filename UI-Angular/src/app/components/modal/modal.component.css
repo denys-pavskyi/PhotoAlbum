@@ -1,0 +1,17 @@
+.closeField{
+    opacity: 50%;
+    background-color: black;
+    position: fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+}
+
+.modalContent{
+    width:500px;
+    height:600px;
+    position: fixed;
+    top: calc(50vh - (600px / 2));
+    left: calc(50vw - (500px / 2)); 
+}

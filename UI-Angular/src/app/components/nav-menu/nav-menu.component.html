@@ -1,8 +1,16 @@
 <header>
     <nav
-      class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 pl-3"
+      class="navbar navbar-expand-sm navbar-toggleable-sm   border-bottom box-shadow mb-3 pl-3"
     >
-    <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+    <a class="nav-link text-dark" [routerLink]="['/']">
+        <div class="container">
+            <div class="row">
+                <div class="col-3"><img src="/assets/icons/homepage-icon.png" width="20px"></div>
+                <div class="col-8 homeDiv">Home</div>
+            </div>
+        </div>
+        
+    </a>
       <div class="container">
         <a class="navbar-brand" [routerLink]="['/']"><u>Internet Photo Album</u></a>
         <button
@@ -26,13 +34,31 @@
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }"
             >
-              
             </li>
+
+
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+                <a class="nav-link text-dark" [routerLink]="['/reports-list']"
+                    >Reports</a
+                >
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+                <a class="nav-link text-dark" [routerLink]="['/reports-list']"
+                    >Users management</a
+                >
+            </li>
+
             <li class="nav-item" [routerLinkActive]="['link-active']">
                 <a class="nav-link text-dark" [routerLink]="['/upload-photo']"
                   >Upload image</a
                 >
-              </li>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+                <a class="nav-link text-dark" [routerLink]="['/albums-list']"
+                  >My Albums</a
+                >
+            </li>
+            
             <li class="nav-item" [routerLinkActive]="['link-active']">
               <a class="nav-link text-dark" [routerLink]="['/profile']"
                 >Profile</a
@@ -44,7 +70,7 @@
                 <a class="nav-link text-dark" [routerLink]="['/login']"
                   >Logout</a
                 >
-              </li>
+            </li>
           </ul>
         </div>
       </div>

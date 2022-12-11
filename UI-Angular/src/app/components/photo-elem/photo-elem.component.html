@@ -1,0 +1,27 @@
+<div class="container-fluid photoElemContainer">
+    <div class="row fit-content-class">
+        <div class="col-md-12 fit-content-class">
+            <img [src] = "photo.photoUrl" class = "photoImg">
+    
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md photoDetails">
+            <b>Title:</b> {{photo.title}}<br>
+            <b>Uploaded By:</b> {{photo.userName}} <b>On: </b>({{photo.uploadDate.toLocaleString().split('T')[0]}})<br>
+            <div class="descriptionDiv"><b>Description:</b> {{photo.description}}</div>
+
+
+            <br>
+            <div class="reactions">
+                <b>Feedback: <br></b>
+                <button class="btn btn-link feedBackButton" (click)="modalsService.openReport()">
+                    <img height="20px" src="assets/icons/report-flag-icon.png" alt="Report photo">
+                </button>
+                <button class="btn btn-link feedBackButton" (click)="modalsService.openAlbum()">
+                    <img height="20px" src="assets/icons/file-new-icon.png" alt="Add to your album" >
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
