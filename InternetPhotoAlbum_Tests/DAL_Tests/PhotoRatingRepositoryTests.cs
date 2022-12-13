@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InternetPhotoAlbum.Tests.DAL_Tests
+namespace InternetPhotoAlbum_Tests.DAL_Tests
 {
     [TestFixture]
     public class PhotoRatingRepositoryTests
@@ -52,7 +52,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             await photoRatingRepository.AddAsync(photoRating);
             await context.SaveChangesAsync();
 
-            Assert.That(context.PhotosRating.Count(), Is.EqualTo(numberOfPhotoRatings+1), message: "AddAsync method works incorrect");
+            Assert.That(context.PhotosRating.Count(), Is.EqualTo(numberOfPhotoRatings + 1), message: "AddAsync method works incorrect");
         }
 
         [Test]

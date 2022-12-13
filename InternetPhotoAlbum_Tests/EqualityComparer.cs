@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetPhotoAlbum.Tests
+namespace InternetPhotoAlbum_Tests
 {
     internal class AlbumPhotoEqualityComparer : IEqualityComparer<AlbumPhoto>
     {
@@ -187,7 +187,7 @@ namespace InternetPhotoAlbum.Tests
 
         }
 
-        
+
 
         public int GetHashCode([DisallowNull] Report obj)
         {

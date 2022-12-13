@@ -1,13 +1,14 @@
 ﻿using DataAccessLayer.Data;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Repositories;
+using InternetPhotoAlbum_Tests;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InternetPhotoAlbum.Tests.DAL_Tests
+namespace InternetPhotoAlbum_Tests.DAL_Tests
 {
     [TestFixture]
     public class AlbumRepositoryTests
@@ -47,7 +48,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             using var context = new InternetPhotoAlbumDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
             var albumRepository = new AlbumRepository(context);
-            var album = new Album { Id = 3, Title="Album3", UserId = 1, CreationDate = DateTime.Now };
+            var album = new Album { Id = 3, Title = "Album3", UserId = 1, CreationDate = DateTime.Now };
 
             await albumRepository.AddAsync(album);
             await context.SaveChangesAsync();
@@ -65,7 +66,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             await albumRepository.DeleteByIdAsync(1);
             await context.SaveChangesAsync();
 
-            Assert.That(context.Albums.Count(), Is.EqualTo(albumsNumber-1), message: "DeleteByIdAsync works incorrect");
+            Assert.That(context.Albums.Count(), Is.EqualTo(albumsNumber - 1), message: "DeleteByIdAsync works incorrect");
         }
 
         [Test]
@@ -109,7 +110,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             var expectedUser = ExpectedUsers.FirstOrDefault(x => x.Id == album.UserId);
             var expectedAlbumPhotos = ExpectedAlbumPhotos.Where(x => x.AlbumId == album.Id);
             var expected = ExpectedAlbums.FirstOrDefault(x => x.Id == 1);
-            
+
             Assert.That(album,
                 Is.EqualTo(expected).Using(new AlbumEqualityComparer()), message: "GetByIdWithDetailsAsync method works incorrect");
 
@@ -139,7 +140,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
 
 
 
-            Assert.That(albums.SelectMany(x=>x.AlbumPhotos).OrderBy(i => i.Id),
+            Assert.That(albums.SelectMany(x => x.AlbumPhotos).OrderBy(i => i.Id),
                Is.EqualTo(ExpectedAlbumPhotos).Using(new AlbumPhotoEqualityComparer()), message: "GetByIdWithDetailsAsync method doesnt't return included entities");
 
 

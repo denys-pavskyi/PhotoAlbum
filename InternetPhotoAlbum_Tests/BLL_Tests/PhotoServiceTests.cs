@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetPhotoAlbum.Tests.BLL_Tests
+namespace InternetPhotoAlbum_Tests.BLL_Tests
 {
     public class PhotoServiceTests
     {
@@ -101,7 +101,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
         }
 
 
-      
+
 
         [TestCase(1)]
         [TestCase(2)]
@@ -167,8 +167,8 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
            new List<Photo>()
            {
                 new Photo{Id = 1, Title = "title1", Description = "desc1", UserId =1, PhotoPath="url1"
-                , UploadDate = new DateTime(2020,1,1), TotalRating = 5d, 
-                    AlbumPhotos = new List<AlbumPhoto>(){ 
+                , UploadDate = new DateTime(2020,1,1), TotalRating = 5d,
+                    AlbumPhotos = new List<AlbumPhoto>(){
                         new AlbumPhoto{Id=1},
                         new AlbumPhoto{Id=2}
                     } , PhotoRatings = new List<PhotoRating>(), PhotoTags= new List<PhotoTag>() ,

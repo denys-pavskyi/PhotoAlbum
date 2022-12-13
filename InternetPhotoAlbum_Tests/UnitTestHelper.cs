@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace InternetPhotoAlbum.Tests
+namespace InternetPhotoAlbum_Tests
 {
     internal static class UnitTestHelper
     {
@@ -61,22 +61,22 @@ namespace InternetPhotoAlbum.Tests
 
 
             context.Tags.AddRange(
-                    new Tag { Id=1, Title="Tag1"},
+                    new Tag { Id = 1, Title = "Tag1" },
                     new Tag { Id = 2, Title = "Tag2" }
                 );
 
             context.PhotoTags.AddRange(
-                    new PhotoTag { Id = 1, PhotoId = 1, TagId = 1},
+                    new PhotoTag { Id = 1, PhotoId = 1, TagId = 1 },
                     new PhotoTag { Id = 2, PhotoId = 2, TagId = 2 }
                 );
 
             context.Users.AddRange(
-                    new User { Id = 1,UserName = "Username1",  FirstName="FirstName1", LastName = "LastName1", PasswordSalt = "1", Password ="P@ssw0rd1", RegistrationDate = new DateTime(2021,5,3), EmailAddress="user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User },
-                    new User { Id = 2, UserName = "Username2", FirstName = "FirstName2", LastName = "LastName2", PasswordSalt = "1", Password = "P@ssw0rd2", RegistrationDate = new DateTime(2022, 10,13), EmailAddress = "user2@gmail.com", BirthDate = new DateTime(1996, 10,17), Role = Role.Admin }
+                    new User { Id = 1, UserName = "Username1", FirstName = "FirstName1", LastName = "LastName1", PasswordSalt = "1", Password = "P@ssw0rd1", RegistrationDate = new DateTime(2021, 5, 3), EmailAddress = "user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User },
+                    new User { Id = 2, UserName = "Username2", FirstName = "FirstName2", LastName = "LastName2", PasswordSalt = "1", Password = "P@ssw0rd2", RegistrationDate = new DateTime(2022, 10, 13), EmailAddress = "user2@gmail.com", BirthDate = new DateTime(1996, 10, 17), Role = Role.Admin }
             );
 
             context.Reports.AddRange(
-                    new Report { Id = 1, Comment = "comment1", PhotoId = 1, Status = ReportStatus.OnReview, UserId = 1},
+                    new Report { Id = 1, Comment = "comment1", PhotoId = 1, Status = ReportStatus.OnReview, UserId = 1 },
                     new Report { Id = 2, Comment = "comment2", PhotoId = 2, Status = ReportStatus.Declined, UserId = 2 }
                 );
             context.SaveChanges();

@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "UI-Angular", "UI-Angular\UI-Angular.esproj", "{2E917E3D-99AD-4759-8F6B-E91AAB5914E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternetPhotoAlbum.Tests", "InternetPhotoAlbum.Tests\InternetPhotoAlbum.Tests.csproj", "{8039EE1E-ED28-49B1-8BF9-F49E2A848EF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternetPhotoAlbum_Tests", "InternetPhotoAlbum_Tests\InternetPhotoAlbum_Tests.csproj", "{52967742-1A25-4BE1-B534-ABFC6A12FD0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,10 @@ Global
 		{2E917E3D-99AD-4759-8F6B-E91AAB5914E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E917E3D-99AD-4759-8F6B-E91AAB5914E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E917E3D-99AD-4759-8F6B-E91AAB5914E7}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{8039EE1E-ED28-49B1-8BF9-F49E2A848EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8039EE1E-ED28-49B1-8BF9-F49E2A848EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8039EE1E-ED28-49B1-8BF9-F49E2A848EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8039EE1E-ED28-49B1-8BF9-F49E2A848EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52967742-1A25-4BE1-B534-ABFC6A12FD0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52967742-1A25-4BE1-B534-ABFC6A12FD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52967742-1A25-4BE1-B534-ABFC6A12FD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52967742-1A25-4BE1-B534-ABFC6A12FD0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

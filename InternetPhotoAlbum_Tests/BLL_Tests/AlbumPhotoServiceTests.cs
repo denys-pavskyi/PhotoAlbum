@@ -2,20 +2,19 @@
 using BuisnessLogicLayer.Services;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Interfaces;
-using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FluentAssertions;
-using Castle.Core.Resource;
-using FluentAssertions.Execution;
 using System.Reflection;
 using BuisnessLogicLayer.Validation;
+using Moq;
+using FluentAssertions;
+using InternetPhotoAlbum_Tests;
 
-namespace InternetPhotoAlbum.Tests.BLL_Tests
+namespace InternetPhotoAlbum_Tests.BLL_Tests
 {
     public class AlbumPhotoServiceTests
     {
@@ -60,7 +59,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
         }
 
 
-        
+
 
         [Test]
         public async Task AlbumPhotoService_AddAsync_AddsModel()
@@ -102,7 +101,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
         }
 
 
-        
+
 
         [TestCase(1)]
         [TestCase(2)]
@@ -122,7 +121,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once());
         }
 
-        
+
 
         [Test]
         public async Task AlbumPhotoService_UpdateAsync_UpdatesAlbumPhoto()
@@ -130,7 +129,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
             //arrange
             var mockUnitOfWork = new Mock<IUnitOfWork>();
             mockUnitOfWork.Setup(m => m.AlbumPhotoRepository.Update(It.IsAny<AlbumPhoto>()));
- 
+
 
             var albumPhotoService = new AlbumPhotoService(mockUnitOfWork.Object, UnitTestHelper.CreateMapperProfile());
             var albumPhoto = GetTestAlbumPhotoModels.First();
@@ -146,11 +145,11 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
         }
 
-        
 
-       
 
-       
+
+
+
 
         #region Data
 

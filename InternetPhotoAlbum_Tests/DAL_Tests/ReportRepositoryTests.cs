@@ -1,14 +1,16 @@
 ﻿using DataAccessLayer.Data;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Repositories;
+using InternetPhotoAlbum_Tests;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+ 
 
-namespace InternetPhotoAlbum.Tests.DAL_Tests
+namespace InternetPhotoAlbum_Tests.DAL_Tests
 {
     public class ReportRepositoryTests
     {
@@ -46,7 +48,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
 
             var reportRepository = new ReportRepository(context);
             var numberOfReports = context.Reports.Count();
-            var report = new Report { Id = 3, Comment = "cmnt1", UserId= 1, PhotoId = 1 };
+            var report = new Report { Id = 3, Comment = "cmnt1", UserId = 1, PhotoId = 1 };
 
             await reportRepository.AddAsync(report);
             await context.SaveChangesAsync();

@@ -1,13 +1,15 @@
 ﻿using DataAccessLayer.Data;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Repositories;
+using InternetPhotoAlbum_Tests;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+ 
 
-namespace InternetPhotoAlbum.Tests.DAL_Tests
+namespace InternetPhotoAlbum_Tests.DAL_Tests
 {
     [TestFixture]
     public class TagRepositoryTests
@@ -20,7 +22,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
 
             var tagRepository = new TagRepository(context);
 
-            var tag =  await tagRepository.GetByIdAsync(id);
+            var tag = await tagRepository.GetByIdAsync(id);
 
             var expected = ExpectedTags.FirstOrDefault(x => x.Id == id);
 
@@ -46,7 +48,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
 
             var tagRepository = new TagRepository(context);
             var numberOfPhotoTags = context.Tags.Count();
-            var tag =  new Tag { Id = 3, Title = "Tag3" };
+            var tag = new Tag { Id = 3, Title = "Tag3" };
 
             await tagRepository.AddAsync(tag);
             await context.SaveChangesAsync();
@@ -90,7 +92,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             }).Using(new TagEqualityComparer()), message: "Update method works incorrect");
         }
 
-        
+
 
         public static IEnumerable<Tag> ExpectedTags =>
                 new[]

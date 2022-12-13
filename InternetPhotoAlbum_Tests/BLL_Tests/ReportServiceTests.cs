@@ -4,6 +4,7 @@ using BuisnessLogicLayer.Validation;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Interfaces;
 using FluentAssertions;
+using InternetPhotoAlbum_Tests;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -12,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetPhotoAlbum.Tests.BLL_Tests
+namespace InternetPhotoAlbum_Tests.BLL_Tests
 {
     public class ReportServiceTests
     {
@@ -100,7 +101,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
         }
 
 
-        
+
 
         [TestCase(1)]
         [TestCase(2)]

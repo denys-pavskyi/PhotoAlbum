@@ -6,8 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+ 
 
-namespace InternetPhotoAlbum.Tests.DAL_Tests
+namespace InternetPhotoAlbum_Tests.DAL_Tests
 {
     [TestFixture]
     public class UserRepositoryTests
@@ -48,7 +49,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
 
             var userRepository = new UserRepository(context);
             var numberOfUsers = context.Users.Count();
-            var user = new User { Id = 3, UserName = "Username3", FirstName = "FirstName3", LastName = "LastName3", PasswordSalt = "1", Password = "P@ssw0rd3" , RegistrationDate = new DateTime(2021, 5, 3), EmailAddress = "user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User };
+            var user = new User { Id = 3, UserName = "Username3", FirstName = "FirstName3", LastName = "LastName3", PasswordSalt = "1", Password = "P@ssw0rd3", RegistrationDate = new DateTime(2021, 5, 3), EmailAddress = "user1@gmail.com", BirthDate = new DateTime(1991, 3, 5), Role = Role.User };
 
             await userRepository.AddAsync(user);
             await context.SaveChangesAsync();
@@ -118,7 +119,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
 
             var user = await userRepository.GetByIdWithDetailsAsync(1);
 
-            
+
             var expectedAlbums = ExpectedAlbums.Where(x => x.UserId == user.Id).OrderBy(i => i.Id);
             var expectedPhotoRatings = ExpectedPhotoRatings.Where(x => x.UserId == user.Id).OrderBy(i => i.Id);
             var expectedPhotos = ExpectedPhotos.Where(x => x.UserId == user.Id).OrderBy(i => i.Id);
@@ -128,7 +129,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
                 Is.EqualTo(expected).Using(new UserEqualityComparer()), message: "GetByIdWithDetailsAsync method works incorrect");
 
 
-          
+
             Assert.That(user.PhotoRatings,
                 Is.EqualTo(expectedPhotoRatings).Using(new PhotoRatingEqualityComparer()), message: "GetByIdWithDetailsAsync method doesnt't return included entities");
             Assert.That(user.Albums,
@@ -152,7 +153,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             Assert.That(users,
                 Is.EqualTo(ExpectedUsers).Using(new UserEqualityComparer()), message: "GetAllWithDetailsAsync method works incorrect");
 
-            
+
 
 
             Assert.That(users.SelectMany(x => x.PhotoRatings).OrderBy(i => i.Id),

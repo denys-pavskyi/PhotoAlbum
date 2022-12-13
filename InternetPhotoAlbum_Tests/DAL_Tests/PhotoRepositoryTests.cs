@@ -1,13 +1,14 @@
 ﻿using DataAccessLayer.Data;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Repositories;
+using InternetPhotoAlbum_Tests;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InternetPhotoAlbum.Tests.DAL_Tests
+namespace InternetPhotoAlbum_Tests.DAL_Tests
 {
     [TestFixture]
     public class PhotoRepositoryTests
@@ -74,12 +75,14 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             using var context = new InternetPhotoAlbumDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
             var photoRepository = new PhotoRepository(context);
-            var photo = new Photo { Id = 1,
+            var photo = new Photo
+            {
+                Id = 1,
                 Title = "Photo6",
                 PhotoPath = "PhotoPath6",
                 TotalRating = 1d,
                 UploadDate = new DateTime(2022, 11, 10),
-                UserId = 1 
+                UserId = 1
             };
 
 
@@ -149,10 +152,10 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
 
             Assert.That(photos.SelectMany(x => x.PhotoTags).OrderBy(i => i.Id),
                Is.EqualTo(ExpectedPhotoTags).Using(new PhotoTagEqualityComparer()), message: "GetByIdWithDetailsAsync method doesnt't return included entities");
-            
+
             Assert.That(photos.SelectMany(x => x.AlbumPhotos).OrderBy(i => i.Id),
                Is.EqualTo(ExpectedAlbumPhotos).Using(new AlbumPhotoEqualityComparer()), message: "GetByIdWithDetailsAsync method doesnt't return included entities");
-            
+
             Assert.That(photos.SelectMany(x => x.PhotoRatings).OrderBy(i => i.Id),
                Is.EqualTo(ExpectedPhotoRatings).Using(new PhotoRatingEqualityComparer()), message: "GetByIdWithDetailsAsync method doesnt't return included entities");
 

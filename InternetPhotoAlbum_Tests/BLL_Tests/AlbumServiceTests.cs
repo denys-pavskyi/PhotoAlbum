@@ -4,6 +4,7 @@ using BuisnessLogicLayer.Validation;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Interfaces;
 using FluentAssertions;
+using InternetPhotoAlbum_Tests;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -12,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetPhotoAlbum.Tests.BLL_Tests
+namespace InternetPhotoAlbum_Tests.BLL_Tests
 {
     public class AlbumServiceTests
     {
@@ -123,7 +124,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
         }
 
 
-       
+
 
         [TestCase(1)]
         [TestCase(2)]
@@ -169,7 +170,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
         }
 
 
-        
+
 
 
 
@@ -196,7 +197,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
                 new Album{ Id = 2,  CreationDate = new DateTime(2020,2,2), Title = "title2", UserId =1, NumberOfPictures = 1,
                  Description = "desc2", AlbumPhotos = new List<AlbumPhoto>(){
                         new AlbumPhoto{ Id = 1, AlbumId =1, PhotoId =1},
-                        
+
                     }
                 }
            };

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace InternetPhotoAlbum.Tests.DAL_Tests
+namespace InternetPhotoAlbum_Tests.DAL_Tests
 {
     [TestFixture]
     public class AlbumPhotoRepositoryTests
@@ -118,7 +118,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             Assert.That(albumPhoto.Photo,
                 Is.EqualTo(expectedPhoto).Using(new PhotoEqualityComparer()), message: "GetByIdWithDetailsAsync method works incorrect");
 
-            
+
         }
 
         [Test]
@@ -168,7 +168,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
                 new Photo{Id=2, Title="Photo2", PhotoPath="PhotoPath2", TotalRating=2.5d, UploadDate = new DateTime(2022,11,29), UserId=1}
             };
 
-        
+
 
     }
 }
