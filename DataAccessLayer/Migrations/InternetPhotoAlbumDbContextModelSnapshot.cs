@@ -93,7 +93,7 @@ namespace DataAccessLayer.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("PhotoUrl")
+                    b.Property<string>("PhotoPath")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
@@ -117,98 +117,6 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Photos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                            PhotoUrl = "/assets/images/db/animals1.jpg",
-                            Title = "Deer",
-                            TotalRating = 5.0,
-                            UploadDate = new DateTime(2021, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                            PhotoUrl = "/assets/images/db/car1.jpg",
-                            Title = "Car in woods",
-                            TotalRating = 3.0,
-                            UploadDate = new DateTime(2022, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                            PhotoUrl = "/assets/images/db/city4.jpg",
-                            Title = "Japanese city",
-                            TotalRating = 4.0,
-                            UploadDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                            PhotoUrl = "/assets/images/db/ukraine1.jpg",
-                            Title = "Kyiv",
-                            TotalRating = 5.0,
-                            UploadDate = new DateTime(2021, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                            PhotoUrl = "/assets/images/db/ukraine3.jpg",
-                            Title = "Field",
-                            TotalRating = 5.0,
-                            UploadDate = new DateTime(2018, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                            PhotoUrl = "/assets/images/db/cars1.jpg",
-                            Title = "Mercedes",
-                            TotalRating = 2.5,
-                            UploadDate = new DateTime(2015, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                            PhotoUrl = "/assets/images/db/car2.jpg",
-                            Title = "Porsche",
-                            TotalRating = 2.5,
-                            UploadDate = new DateTime(2022, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                            PhotoUrl = "/assets/images/db/mountain1.jpg",
-                            Title = "Japan mountain",
-                            TotalRating = 3.0,
-                            UploadDate = new DateTime(2019, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                            PhotoUrl = "/assets/images/db/nature1.jpg",
-                            Title = "Hills",
-                            TotalRating = 4.7000000000000002,
-                            UploadDate = new DateTime(2018, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 1
-                        });
                 });
 
             modelBuilder.Entity("DataAccessLayer.Entities.PhotoRating", b =>
@@ -309,43 +217,6 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tags");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Title = "Animals"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Title = "Cities"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Title = "Japan"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Title = "Rivers"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Title = "Mountains"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Title = "Cars"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Title = "Ukraine"
-                        });
                 });
 
             modelBuilder.Entity("DataAccessLayer.Entities.User", b =>
@@ -397,50 +268,6 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BirthDate = new DateTime(1963, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmailAddress = "michael_jordan@gmail.com",
-                            FirstName = "Michael",
-                            LastName = "Jordan",
-                            Password = "qyzQ2nwWrhP2B2GW5zyA474VPKRBI5SiBoQTQL9WIRQ=",
-                            PasswordSalt = "04GspiCZJ5P7/iN3bvcKwqTRpQ1Cy74ven+2k6S4Rb1g45G6TSs7PdntzXipdwC3U9MIXRiW34fLFWBeGHigCiy6JVkoScXmrrZyU/eqv6yrhYNjk97s5PxlYUBQNXVtq5x8gTzkjvqJUz4k12Lh9ZDnxW8fGjargWNFimUrOxs=",
-                            RegistrationDate = new DateTime(2020, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Role = 0,
-                            UserName = "jordan100",
-                            UserStatus = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BirthDate = new DateTime(1990, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmailAddress = "john_peterson@gmail.com",
-                            FirstName = "John",
-                            LastName = "Peterson",
-                            Password = "pJjgiLe125FtR/0nLpPDrLp4yQ8VHGvcDsQz2S+Zo6Q=",
-                            PasswordSalt = "nBUmfMoNvbXWJz9IBExvRsf3aXqBNQwjvengMFtottifM5BXO9Dd+ptLFyuVup0v2ptnkkT07E2tFk3jKlNqlKQvO0/tifU0RE8BZOctlT+KUQVRm4h4DwOCisZXA5M2OyKav0QRlDcVYf2qZSV9QzJEgE0YPrsy8UAaXOQshT8=",
-                            RegistrationDate = new DateTime(2021, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Role = 1,
-                            UserName = "johny1",
-                            UserStatus = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BirthDate = new DateTime(1963, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmailAddress = "barack_obama@gmail.com",
-                            FirstName = "Barack",
-                            LastName = "Obama",
-                            Password = "hUDm7nRCZxxDY+q1mVigaSoXWTqMyaPUc7ApQcHe2LQ=",
-                            PasswordSalt = "azVVLWQdzIwg4CzTUJfUeLRunjLSCc1HiSMAgHjjBapTDRvAHkX55r3M2wk2c4z6+XRJxPq07vxFucpDZ8CKTRyUCLpgYmY7or3w/Vb0oqezGL1loBiQnLQooWO8ZppoBf7zaSPut48sFob7AYKA0w4Gm+ZQ7fwxMYUQouQrEo4=",
-                            RegistrationDate = new DateTime(2019, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Role = 1,
-                            UserName = "barack_usa",
-                            UserStatus = 0
-                        });
                 });
 
             modelBuilder.Entity("DataAccessLayer.Entities.Album", b =>

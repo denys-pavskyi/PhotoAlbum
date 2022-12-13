@@ -1,1 +1,28 @@
-<p>albums-list works!</p>
+<div class="container-fluid albumListPage">
+    <h1><u>Your albums list</u></h1>
+    <p *ngIf="loading" class="text-center text-lg">
+        Loading...
+    </p>
+    <div class="container albumContainer">
+        <div class="row">
+        
+             <div class="col-3 containerElement createAlbumDiv">
+                <button class="btn btn-link createAlbumButton"  type="button" (click)="modalsService.openCreateAlbum()">
+                        <span class="createAlbumText">Create Album</span>
+                </button>
+            </div> 
+            
+            <div class="col-3 containerElement" *ngFor="let album of albums$ | async">
+                <app-album-elem [album] = album>  </app-album-elem>
+            </div>
+            
+             
+        </div>
+    </div>
+
+
+    <app-modal *ngIf="modalsService.isCreatingAlbum$ | async" title="Create album">
+        <app-create-album></app-create-album>
+    </app-modal>
+
+</div>

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/<UserController>
-        [HttpGet]
+        [HttpGet("users")]
         public async Task<ActionResult<IEnumerable<UserModel>>> Get()
         {
             var users = await _service.GetAllAsync();
@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
         }
 
         // GET api/<UserController>/5
-        [HttpGet("{id}")]
+        [HttpGet("user/{id}")]
         public async Task<ActionResult<UserModel>> GetById(int id)
         {
             var user = await _service.GetByIdAsync(id);
@@ -51,7 +51,7 @@ namespace WebAPI.Controllers
         }
 
         // POST api/AlbumPhoto
-        [HttpPost]
+        [HttpPost("user")]
         public async Task<ActionResult> Post([FromBody] UserModel user)
         {
             if (user == null)
@@ -72,7 +72,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<UserController>/5
-        [HttpPut("{id}")]
+        [HttpPut("user/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] UserModel value)
         {
             try
@@ -94,7 +94,7 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("user/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             var user = await _service.GetByIdAsync(id);

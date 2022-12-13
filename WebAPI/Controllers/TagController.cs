@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class TagController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/<TagController>
-        [HttpGet]
+        [HttpGet("tags")]
         public async Task<ActionResult<IEnumerable<TagModel>>> Get()
         {
             var tags = await _service.GetAllAsync();
@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
         }
 
         // GET api/<TagController>/5
-        [HttpGet("{id}")]
+        [HttpGet("tag/{id}")]
         public async Task<ActionResult<TagModel>> GetById(int id)
         {
             var tag = await _service.GetByIdAsync(id);
@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
         }
 
         // POST api/AlbumPhoto
-        [HttpPost]
+        [HttpPost("tag")]
         public async Task<ActionResult> Post([FromBody] TagModel tag)
         {
             if (tag == null)
@@ -75,7 +75,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<TagController>/5
-        [HttpPut("{id}")]
+        [HttpPut("tag/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] TagModel value)
         {
             try
@@ -97,7 +97,7 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<TagController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("tag/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             var tag = await _service.GetByIdAsync(id);

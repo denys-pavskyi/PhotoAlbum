@@ -74,7 +74,7 @@ namespace DataAccessLayer.Data
                 .HasOne(x => x.User).WithMany(x => x.Reports).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.NoAction);
 
 
-            //SeedData(modelBuilder);
+            SeedData(modelBuilder);
 
 
             
@@ -147,7 +147,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2021,2,3),
                         TotalRating = 0d, 
                         Description= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/animals1.jpg",
+                        PhotoPath = "animals1.jpg",
                         UserId = 1
                     },
                     new Photo
@@ -157,7 +157,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 1, 3),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/car1.jpg",
+                        PhotoPath = "car1.jpg",
                         UserId = 3
                     },
                     new Photo
@@ -167,7 +167,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2021, 1, 1),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/city4.jpg",
+                        PhotoPath = "city4.jpg",
                         UserId = 1
                     },
                     new Photo
@@ -177,7 +177,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2021, 2, 3),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/ukraine1.jpg",
+                        PhotoPath = "ukraine1.jpg",
                         UserId = 2
                     },
                     new Photo
@@ -187,7 +187,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2018, 11,16),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/ukraine3.jpg",
+                        PhotoPath = "ukraine3.jpg",
                         UserId = 2
                     },
                     new Photo
@@ -197,7 +197,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2015, 6, 22),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/ukraine6.jpg",
+                        PhotoPath = "ukraine6.jpg",
                         UserId = 1
                     },
                     new Photo
@@ -207,7 +207,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 3, 22),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/ukraine4.png",
+                        PhotoPath = "ukraine4.jpg",
                         UserId = 3
                     },
                     new Photo
@@ -217,7 +217,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2019, 6, 17),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/mountain1.jpg",
+                        PhotoPath = "mountain1.jpg",
                         UserId = 1
                     },
                     new Photo
@@ -227,7 +227,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2018, 4, 19),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/nature1.jpg",
+                        PhotoPath = "nature1.jpg",
                         UserId = 1
                     },
                     new Photo
@@ -237,7 +237,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2020, 1, 1),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/animals1.jpg",
+                        PhotoPath = "animals1.jpg",
                         UserId = 2
                     },
                     new Photo
@@ -247,7 +247,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 2,7),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/animals1.jpg",
+                        PhotoPath = "animals1.jpg",
                         UserId = 2
                     },
                     new Photo
@@ -257,7 +257,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2017, 2, 7),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/animals4.jpg",
+                        PhotoPath = "animals4.jpg",
                         UserId = 2
                     },
                     new Photo
@@ -267,7 +267,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2018, 6, 6),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/animals5.jpg",
+                        PhotoPath = "animals5.jpg",
                         UserId = 2
                     },
                     new Photo
@@ -277,7 +277,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 11,16),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/animals6.jpg",
+                        PhotoPath = "animals6.jpg",
                         UserId = 2
                     },
                     new Photo
@@ -287,7 +287,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 2, 25),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/animals7.jpg",
+                        PhotoPath = "animals7.jpg",
                         UserId = 1
                     },
                     new Photo
@@ -297,7 +297,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 3, 3),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/animals8.jpg",
+                        PhotoPath = "animals8.jpg",
                         UserId = 2
                     },
                     new Photo
@@ -307,7 +307,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 2, 7),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/city1.jpg",
+                        PhotoPath = "city1.jpg",
                         UserId = 3
                     },
                     new Photo
@@ -317,7 +317,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2021, 3, 8),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/city2.jpg",
+                        PhotoPath = "city2.jpg",
                         UserId = 3
                     },
                     new Photo
@@ -327,7 +327,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 2, 7),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/city3.jpg",
+                        PhotoPath = "city3.jpg",
                         UserId = 3
                     },
                     new Photo
@@ -337,7 +337,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 2, 7),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/city5.jpg",
+                        PhotoPath = "city5.jpg",
                         UserId = 3
                     },
                     new Photo
@@ -347,7 +347,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 2, 7),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/city6.jpg",
+                        PhotoPath = "city6.jpg",
                         UserId = 3
                     },
                     new Photo
@@ -357,7 +357,7 @@ namespace DataAccessLayer.Data
                         UploadDate = new DateTime(2022, 2, 7),
                         TotalRating = 0d,
                         Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum",
-                        PhotoUrl = "/assets/images/db/city7.jpg",
+                        PhotoPath = "city7.jpg",
                         UserId = 3
                     }
 
@@ -428,6 +428,16 @@ namespace DataAccessLayer.Data
                 }
             );
 
+
+            modelBuilder.Entity<PhotoTag>().HasData(
+                new PhotoTag { Id = 1, PhotoId = 1, TagId = 1 },
+                new PhotoTag { Id = 2, PhotoId = 15, TagId = 1},
+                new PhotoTag { Id = 3, PhotoId = 16, TagId = 1 },
+                new PhotoTag { Id = 4, PhotoId = 8, TagId = 3 },
+                new PhotoTag { Id = 5, PhotoId = 8, TagId = 5  },
+                new PhotoTag { Id = 6, PhotoId = 3, TagId = 3 },
+                new PhotoTag { Id = 7, PhotoId = 3, TagId = 5 }
+            );
 
 
         }

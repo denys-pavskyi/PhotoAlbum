@@ -25,9 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
 
-  logToConsole(i: number){
-    console.log(i);
-  }
-
+  
 
 }

@@ -95,7 +95,7 @@ namespace BuisnessLogicLayer.Validation
                 throw new InternetPhotoAlbumException("Photo was null");
             }
             
-            if(model.PhotoUrl == null || model.PhotoUrl == String.Empty)
+            if(model.PhotoPath == null || model.PhotoPath == String.Empty)
             {
                 throw new InternetPhotoAlbumException("Wrong Photo Url");
             }

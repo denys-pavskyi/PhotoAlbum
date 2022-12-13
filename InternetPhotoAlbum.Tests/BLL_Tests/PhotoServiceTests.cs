@@ -78,7 +78,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
                             x.UserId == photo.UserId &&
                             x.Description == photo.Description &&
                             x.Title == photo.Title &&
-                            x.PhotoUrl == photo.PhotoUrl)), Times.Once);
+                            x.PhotoPath == photo.PhotoPath)), Times.Once);
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
         }
 
@@ -156,7 +156,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
                             x.UserId == photo.UserId &&
                             x.Description == photo.Description &&
                             x.Title == photo.Title &&
-                            x.PhotoUrl == photo.PhotoUrl)), Times.Once);
+                            x.PhotoPath == photo.PhotoPath)), Times.Once);
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
         }
 
@@ -171,16 +171,16 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
         public List<PhotoModel> GetTestPhotoModels =>
             new List<PhotoModel>()
             {
-                new PhotoModel{Id = 1, Title = "title1", Description = "desc1", UserId =1, PhotoUrl="url1", UserName="username1"
+                new PhotoModel{Id = 1, Title = "title1", Description = "desc1", UserId =1, PhotoPath="url1", UserName="username1"
                 , UploadDate = new DateTime(2020,1,1), TotalRating = 5d, AlbumPhotoIds = new[]{1,2 }, PhotoRatingIds = new List<int>(), PhotoTagsIds = new List<int>()},
-                new PhotoModel{Id = 2, Title = "title2", Description = "desc2", UserId =2, PhotoUrl="url2", UserName="username1"
+                new PhotoModel{Id = 2, Title = "title2", Description = "desc2", UserId =2, PhotoPath="url2", UserName="username1"
                 , UploadDate = new DateTime(2020,2,2), TotalRating = 3d, PhotoTagsIds = new List<int>(), PhotoRatingIds = new List<int>(), AlbumPhotoIds = new List<int>()}
             };
 
         public List<Photo> GetTestPhotoEntities =>
            new List<Photo>()
            {
-                new Photo{Id = 1, Title = "title1", Description = "desc1", UserId =1, PhotoUrl="url1"
+                new Photo{Id = 1, Title = "title1", Description = "desc1", UserId =1, PhotoPath="url1"
                 , UploadDate = new DateTime(2020,1,1), TotalRating = 5d, 
                     AlbumPhotos = new List<AlbumPhoto>(){ 
                         new AlbumPhoto{Id=1},
@@ -190,7 +190,7 @@ namespace InternetPhotoAlbum.Tests.BLL_Tests
                      BirthDate = DateTime.Now, FirstName="name1", LastName="name2", RegistrationDate=DateTime.Now, EmailAddress="email",
                      Role = Role.User}
                 },
-                new Photo{Id = 2, Title = "title2", Description = "desc2", UserId =2, PhotoUrl="url2"
+                new Photo{Id = 2, Title = "title2", Description = "desc2", UserId =2, PhotoPath="url2"
                 , UploadDate = new DateTime(2020,2,2), TotalRating = 3d, PhotoRatings = new List<PhotoRating>(),
                     PhotoTags= new List < PhotoTag >(), AlbumPhotos = new List < AlbumPhoto >(),
                 User = new User{Id = 1, UserName = "username1", UserStatus = UserStatus.Active, Password = "pass", PasswordSalt="123",

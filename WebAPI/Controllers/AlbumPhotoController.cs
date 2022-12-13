@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class AlbumPhotoController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/<AlbumPhotoController>
-        [HttpGet]
+        [HttpGet("albumPhotos")]
         public async Task<ActionResult<IEnumerable<AlbumPhotoModel>>> Get()
         {
             var albumPhotos = await _service.GetAllAsync();
@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
         }
 
         // GET api/<AlbumPhotoController>/5
-        [HttpGet("{id}")]
+        [HttpGet("albumPhoto/{id}")]
         public async Task<ActionResult<AlbumPhotoModel>> GetById(int id)
         {
             var albumPhoto = await _service.GetByIdAsync(id);
@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
         }
 
         // POST api/AlbumPhoto
-        [HttpPost]
+        [HttpPost("albumPhoto")]
         public async Task<ActionResult> Post([FromBody] AlbumPhotoModel albumPhoto)
         {
             if (albumPhoto == null)
@@ -75,7 +75,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<AlbumPhotoController>/5
-        [HttpPut("{id}")]
+        [HttpPut("albumPhoto/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] AlbumPhotoModel value)
         {
             try
@@ -97,7 +97,7 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<AlbumPhotoController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("albumPhoto/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             var albumPhoto = await _service.GetByIdAsync(id);

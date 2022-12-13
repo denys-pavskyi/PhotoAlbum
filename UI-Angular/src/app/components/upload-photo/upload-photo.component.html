@@ -13,7 +13,15 @@
         </div><br>
 
         <app-file-upload formControlName="image"></app-file-upload>
-        
+        <div class="validationFailed" *ngIf="form.controls['image'].invalid"> Image is not valid</div><br>
+         
+        <div>
+            <label>Add tags: </label>
+            <input type="text" name="tags" formControlName="tags">
+            <div class="validationFailed" *ngIf="form.controls['tags'].invalid"> Tags are not valid</div>
+            
+        </div><br>
         <button (click)="uploadPhoto()">Confirm</button>
+           
     </form>
 </div>

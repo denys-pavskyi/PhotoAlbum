@@ -1,0 +1,11 @@
+.reportPage{
+    min-height: 800px;
+}
+
+.reportElem{
+    height: 100px;
+    border: 3px solid red;
+}
+.reportPage>.row{
+    width:60%;
+}

@@ -19,11 +19,14 @@ import { PhotoComponent } from './components/photo/photo.component';
 import { PhotoPreviewComponent } from './components/photo-preview/photo-preview.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { AddToAlbumComponent } from './components/add-to-album/add-to-album.component';
-import { ReportPhotoComponent } from './components/report-photo/report-photo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { CommonModule } from '@angular/common';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { AlbumElemComponent } from './components/album-elem/album-elem.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { ReportElemComponent } from './components/report-elem/report-elem.component';
+import { ReportPhotoComponent } from './components/report-photo/report-photo.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +45,12 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     PhotoPreviewComponent,
     ModalComponent,
     AddToAlbumComponent,
-    ReportPhotoComponent,
     UploadPhotoComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    AlbumElemComponent,
+    RegistrationComponent,
+    ReportElemComponent,
+    ReportPhotoComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, 

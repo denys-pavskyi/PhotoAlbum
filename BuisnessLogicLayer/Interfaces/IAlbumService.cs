@@ -9,5 +9,7 @@ namespace BuisnessLogicLayer.Interfaces
 {
     public interface IAlbumService : ICrud<AlbumModel>
     {
+        Task<IEnumerable<AlbumModel>> GetByUserIdAsync(int userId);
+        Task<PhotoModel> GetFirstPhotoByAlbumId(int albumId);
     }
 }

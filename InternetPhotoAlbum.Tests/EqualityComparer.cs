@@ -89,7 +89,7 @@ namespace InternetPhotoAlbum.Tests
                 return false;
 
             return x.Id == y.Id &&
-                x.PhotoUrl == y.PhotoUrl &&
+                x.PhotoPath == y.PhotoPath &&
                 x.Description == y.Description &&
                 x.Title == y.Title &&
                 x.UploadDate == y.UploadDate &&

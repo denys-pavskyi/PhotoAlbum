@@ -3,13 +3,23 @@
 >    
 </div>
 
+
 <div
-    class="modalContent rounded bg-white"
+    class="modalContent rounded"
 >
 
-    <h1 class="text-center">{{title}}</h1>
-
     
-    <ng-content></ng-content>
+    
+    <div class="contentDiv">
+        <div class="titleDiv">
+            <h1 class="text-center"><u>{{title}}</u></h1>
+        </div>
+        <div class="formDiv">
+            <ng-content></ng-content>
+        </div>
+        
+    </div>
+    
+    
     
 </div>

@@ -28,7 +28,9 @@ namespace BuisnessLogicLayer.Services
             ModelsValidation.PhotoModelValidation(model);
             var mappedPhoto = _mapper.Map<Photo>(model);
 
+
             await _unitOfWork.PhotoRepository.AddAsync(mappedPhoto);
+            
             await _unitOfWork.SaveAsync();
         }
 

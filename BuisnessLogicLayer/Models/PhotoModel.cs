@@ -10,7 +10,7 @@ namespace BuisnessLogicLayer.Models
     {
         public int Id { get; set; }
 
-        public string PhotoUrl { get; set; } = string.Empty;
+        public string PhotoPath { get; set; } = string.Empty;
 
         public string Title { get; set; } = string.Empty;
 

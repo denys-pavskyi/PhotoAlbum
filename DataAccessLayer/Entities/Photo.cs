@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace DataAccessLayer.Entities
     {
         [Required, StringLength(200)]
         
-        public string PhotoUrl { get; set; }
+        public string PhotoPath { get; set; }
 
         [Required, StringLength(150)]
         public string Title { get; set; }
@@ -28,7 +29,7 @@ namespace DataAccessLayer.Entities
 
         public double TotalRating { get; set; }
 
-
+        [AllowNull]
         public User User { get; set; }
         public ICollection<AlbumPhoto> AlbumPhotos { get; set; }
         public ICollection<PhotoRating> PhotoRatings { get; set; }

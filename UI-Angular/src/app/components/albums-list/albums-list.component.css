@@ -1,0 +1,35 @@
+.albumListPage{
+    min-height: 100vh;
+}
+
+
+
+.containerElement{
+    height:250px;
+    padding:0px;
+    overflow: hidden;
+    margin: 10px;
+    border: 2px solid grey;
+    border-radius: 30px;
+    
+}
+
+.createAlbumDiv{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.createAlbumText{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.createAlbumButton{
+    padding:0px;
+    width:100%;
+    color:black;
+    
+}

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class ReportController : ControllerBase
     {
@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/<ReportController>
-        [HttpGet]
+        [HttpGet("reports")]
         public async Task<ActionResult<IEnumerable<ReportModel>>> Get()
         {
             var reports = await _service.GetAllAsync();
@@ -35,8 +35,26 @@ namespace WebAPI.Controllers
 
         }
 
+        // GET: api/<ReportController>
+        [HttpGet("reports/onReview")]
+        public async Task<ActionResult<IEnumerable<ReportModel>>> GetReportsOnReview()
+        {
+            var reports = await _service.GetReportsOnReview();
+
+            if (reports == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+
+                return new ObjectResult(reports);
+            }
+
+        }
+
         // GET api/<ReportController>/5
-        [HttpGet("{id}")]
+        [HttpGet("report/{id}")]
         public async Task<ActionResult<ReportModel>> GetById(int id)
         {
             var report = await _service.GetByIdAsync(id);
@@ -51,7 +69,7 @@ namespace WebAPI.Controllers
         }
 
         // POST api/AlbumPhoto
-        [HttpPost]
+        [HttpPost("report")]
         public async Task<ActionResult> Post([FromBody] ReportModel report)
         {
             if (report == null)
@@ -72,7 +90,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<ReportController>/5
-        [HttpPut("{id}")]
+        [HttpPut("report/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] ReportModel value)
         {
             try
@@ -94,7 +112,7 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<ReportController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("report/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             var report = await _service.GetByIdAsync(id);

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class PhotoTagController : ControllerBase
     {
@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/<PhotoTagController>
-        [HttpGet]
+        [HttpGet("photoTags")]
         public async Task<ActionResult<IEnumerable<PhotoTagModel>>> Get()
         {
             var photoTags = await _service.GetAllAsync();
@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
         }
 
         // GET api/<PhotoTagController>/5
-        [HttpGet("{id}")]
+        [HttpGet("photoTag/{id}")]
         public async Task<ActionResult<PhotoTagModel>> GetById(int id)
         {
             var photoTag = await _service.GetByIdAsync(id);
@@ -51,7 +51,7 @@ namespace WebAPI.Controllers
         }
 
         // POST api/AlbumPhoto
-        [HttpPost]
+        [HttpPost("photoTag")]
         public async Task<ActionResult> Post([FromBody] PhotoTagModel photoTag)
         {
             if (photoTag == null)
@@ -72,7 +72,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<PhotoTagController>/5
-        [HttpPut("{id}")]
+        [HttpPut("photoTag/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] PhotoTagModel value)
         {
             try
@@ -94,7 +94,7 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<PhotoTagController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("photoTag/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             var photoTag = await _service.GetByIdAsync(id);

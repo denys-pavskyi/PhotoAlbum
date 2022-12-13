@@ -41,7 +41,7 @@
         <div class="col-12">
             <div class="row d-flex justify-content-center" *ngIf="photoService.photos">
                 <div class="col-lg-5 photoElementDiv" *ngFor="let photo of photos$ | async ; let i = index">
-                    <button class="btn btn-link textNoLinkStyle" (click)="logToConsole(i)">
+                    <button class="btn btn-link textNoLinkStyle">
                         <app-photo-elem [photo] = "photo" [modalsService]="modalsService"></app-photo-elem>
                     </button>
                 </div>

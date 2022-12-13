@@ -47,7 +47,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
 
             var photoRepository = new PhotoRepository(context);
             var numberOfPhotos = context.Photos.Count();
-            var photo = new Photo { Id = 3, Title = "Photo3", PhotoUrl = "PhotoUrl3", TotalRating = 4.5d, UploadDate = new DateTime(2022, 11, 10), UserId = 1 };
+            var photo = new Photo { Id = 3, Title = "Photo3", PhotoPath = "PhotoPath3", TotalRating = 4.5d, UploadDate = new DateTime(2022, 11, 10), UserId = 1 };
 
             await photoRepository.AddAsync(photo);
             await context.SaveChangesAsync();
@@ -76,7 +76,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             var photoRepository = new PhotoRepository(context);
             var photo = new Photo { Id = 1,
                 Title = "Photo6",
-                PhotoUrl = "PhotoUrl6",
+                PhotoPath = "PhotoPath6",
                 TotalRating = 1d,
                 UploadDate = new DateTime(2022, 11, 10),
                 UserId = 1 
@@ -90,7 +90,7 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
             {
                 Id = 1,
                 Title = "Photo6",
-                PhotoUrl = "PhotoUrl6",
+                PhotoPath = "PhotoPath6",
                 TotalRating = 1d,
                 UploadDate = new DateTime(2022, 11, 10),
                 UserId = 1
@@ -167,8 +167,8 @@ namespace InternetPhotoAlbum.Tests.DAL_Tests
         public static IEnumerable<Photo> ExpectedPhotos =>
             new[]
             {
-                new Photo{Id=1, Title="Photo1", PhotoUrl="PhotoUrl1", TotalRating=3.4d, UploadDate = new DateTime(2022,11,29), UserId=1},
-                new Photo{Id=2, Title="Photo2", PhotoUrl="PhotoUrl2", TotalRating=2.5d, UploadDate = new DateTime(2022,11,29), UserId=2}
+                new Photo{Id=1, Title="Photo1", PhotoPath="PhotoPath1", TotalRating=3.4d, UploadDate = new DateTime(2022,11,29), UserId=1},
+                new Photo{Id=2, Title="Photo2", PhotoPath="PhotoPath2", TotalRating=2.5d, UploadDate = new DateTime(2022,11,29), UserId=2}
             };
 
         public static IEnumerable<User> ExpectedUsers =>

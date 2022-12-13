@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class AlbumController : ControllerBase
     {
@@ -19,6 +19,7 @@ namespace WebAPI.Controllers
 
         // GET: api/<AlbumController>
         [HttpGet]
+        [Route("albums")]
         public async Task<ActionResult<IEnumerable<AlbumModel>>> Get()
         {
             var albums = await _service.GetAllAsync();
@@ -36,7 +37,7 @@ namespace WebAPI.Controllers
         }
 
         // GET api/<AlbumController>/5
-        [HttpGet("{id}")]
+        [HttpGet("album/{id}")]
         public async Task<ActionResult<AlbumModel>> GetById(int id)
         {
             var album = await _service.GetByIdAsync(id);
@@ -50,8 +51,42 @@ namespace WebAPI.Controllers
             }
         }
 
+        // GET api/<AlbumController>/{id}/preview
+        [HttpGet("album/{id}/preview")]
+        public async Task<ActionResult<PhotoModel>> GetAlbumPhotoPreview(int id)
+        {
+            var photo = await _service.GetFirstPhotoByAlbumId(id);
+            if (photo == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return new ObjectResult(photo);
+            }
+        }
+
+
+        
+
+        // GET api/<AlbumController>/5
+        [HttpGet("album/user/{userId}")]
+        public async Task<ActionResult<AlbumModel>> GetByUserId(int userId)
+        {
+            var album = await _service.GetByUserIdAsync(userId);
+            if (album == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return new ObjectResult(album);
+            }
+        }
+
+
         // POST api/AlbumPhoto
-        [HttpPost]
+        [HttpPost("album")]
         public async Task<ActionResult> Post([FromBody] AlbumModel album)
         {
             if (album == null)
@@ -72,7 +107,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<AlbumController>/5
-        [HttpPut("{id}")]
+        [HttpPut("album/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] AlbumModel value)
         {
             try
@@ -94,7 +129,7 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<AlbumController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("album/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             var album = await _service.GetByIdAsync(id);

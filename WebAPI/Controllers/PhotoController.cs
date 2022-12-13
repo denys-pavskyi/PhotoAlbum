@@ -8,7 +8,7 @@ using System.Security.Claims;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class PhotoController : ControllerBase
     {
@@ -20,8 +20,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/photos
-        [HttpGet]
-        //[Route("photos")]
+        [HttpGet("photos")]
         //[Authorize(Policy = "OnlyNonBannedUser")]
         public async Task<ActionResult<IEnumerable<PhotoModel>>> Get()
         {
@@ -43,8 +42,7 @@ namespace WebAPI.Controllers
         }
 
         // GET api/<PhotoController>/5
-        [HttpGet("{id}")]
-        //[Route("photo/{id}")]
+        [HttpGet("photo/{id}")]
         public async Task<ActionResult<PhotoModel>> GetById(int id)
         {
             var photo = await _service.GetByIdAsync(id);
@@ -59,17 +57,17 @@ namespace WebAPI.Controllers
         }
 
         // POST api/AlbumPhoto
-        [HttpPost]
+        [HttpPost("photo")]
         public async Task<ActionResult> Post([FromBody] PhotoModel photo)
         {
 
-            var claimsIdentity = HttpContext.User.Identity as ClaimsIdentity;
+            /*var claimsIdentity = HttpContext.User.Identity as ClaimsIdentity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             if (claim == null)
             {
 
                 return Unauthorized("Invalid user");
-            }
+            }*/
 
             if (photo == null)
             {
@@ -89,7 +87,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<PhotoController>/5
-        [HttpPut("{id}")]
+        [HttpPut("photo/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] PhotoModel value)
         {
             try
@@ -111,7 +109,7 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<PhotoController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("photo/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             var photo = await _service.GetByIdAsync(id);

@@ -1,8 +1,8 @@
 import { raceWith } from "rxjs";
 
 export class Photo{
-    id: number;
-    photoUrl: string;
+    id!: number;
+    photoPath: string;
     title: string;
     description?: string;
     uploadDate: Date;
@@ -14,11 +14,10 @@ export class Photo{
     albumIds: Array<number>;
 
 
-    constructor(id: number, photoUrl: string, title: string, description="", uploadDate: Date, userId: number
+    constructor(photoPath: string, title: string, description="", uploadDate: Date, userId: number
     , totalRating: number, photoRatingIds: Array<number>, photoIds: Array<number>, albumIds: Array<number>,
     userName: string ){
-        this.id = id;
-        this.photoUrl = photoUrl;
+        this.photoPath = photoPath;
         this.title = title;
         this.description = description;
         this.userId = userId;

@@ -72,7 +72,7 @@ namespace DataAccessLayer.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PhotoUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    PhotoPath = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Title = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
                     UploadDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -193,46 +193,6 @@ namespace DataAccessLayer.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.InsertData(
-                table: "Tags",
-                columns: new[] { "Id", "Title" },
-                values: new object[,]
-                {
-                    { 1, "Animals" },
-                    { 2, "Cities" },
-                    { 3, "Japan" },
-                    { 4, "Rivers" },
-                    { 5, "Mountains" },
-                    { 6, "Cars" },
-                    { 7, "Ukraine" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Users",
-                columns: new[] { "Id", "BirthDate", "EmailAddress", "FirstName", "LastName", "Password", "PasswordSalt", "RegistrationDate", "Role", "UserName", "UserStatus" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(1963, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "michael_jordan@gmail.com", "Michael", "Jordan", "qyzQ2nwWrhP2B2GW5zyA474VPKRBI5SiBoQTQL9WIRQ=", "04GspiCZJ5P7/iN3bvcKwqTRpQ1Cy74ven+2k6S4Rb1g45G6TSs7PdntzXipdwC3U9MIXRiW34fLFWBeGHigCiy6JVkoScXmrrZyU/eqv6yrhYNjk97s5PxlYUBQNXVtq5x8gTzkjvqJUz4k12Lh9ZDnxW8fGjargWNFimUrOxs=", new DateTime(2020, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "jordan100", 0 },
-                    { 2, new DateTime(1990, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "john_peterson@gmail.com", "John", "Peterson", "pJjgiLe125FtR/0nLpPDrLp4yQ8VHGvcDsQz2S+Zo6Q=", "nBUmfMoNvbXWJz9IBExvRsf3aXqBNQwjvengMFtottifM5BXO9Dd+ptLFyuVup0v2ptnkkT07E2tFk3jKlNqlKQvO0/tifU0RE8BZOctlT+KUQVRm4h4DwOCisZXA5M2OyKav0QRlDcVYf2qZSV9QzJEgE0YPrsy8UAaXOQshT8=", new DateTime(2021, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "johny1", 0 },
-                    { 3, new DateTime(1963, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "barack_obama@gmail.com", "Barack", "Obama", "hUDm7nRCZxxDY+q1mVigaSoXWTqMyaPUc7ApQcHe2LQ=", "azVVLWQdzIwg4CzTUJfUeLRunjLSCc1HiSMAgHjjBapTDRvAHkX55r3M2wk2c4z6+XRJxPq07vxFucpDZ8CKTRyUCLpgYmY7or3w/Vb0oqezGL1loBiQnLQooWO8ZppoBf7zaSPut48sFob7AYKA0w4Gm+ZQ7fwxMYUQouQrEo4=", new DateTime(2019, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "barack_usa", 0 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Photos",
-                columns: new[] { "Id", "Description", "PhotoUrl", "Title", "TotalRating", "UploadDate", "UserId" },
-                values: new object[,]
-                {
-                    { 1, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum", "/assets/images/db/animals1.jpg", "Deer", 5.0, new DateTime(2021, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
-                    { 2, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum", "/assets/images/db/car1.jpg", "Car in woods", 3.0, new DateTime(2022, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 3 },
-                    { 3, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum", "/assets/images/db/city4.jpg", "Japanese city", 4.0, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
-                    { 4, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum", "/assets/images/db/ukraine1.jpg", "Kyiv", 5.0, new DateTime(2021, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
-                    { 5, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum", "/assets/images/db/ukraine3.jpg", "Field", 5.0, new DateTime(2018, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
-                    { 6, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum", "/assets/images/db/cars1.jpg", "Mercedes", 2.5, new DateTime(2015, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
-                    { 7, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum", "/assets/images/db/car2.jpg", "Porsche", 2.5, new DateTime(2022, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), 3 },
-                    { 8, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum", "/assets/images/db/mountain1.jpg", "Japan mountain", 3.0, new DateTime(2019, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
-                    { 9, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temDuisfugiat nulla pariaecat cupidata deserunt mollit anim id est laborum", "/assets/images/db/nature1.jpg", "Hills", 4.7000000000000002, new DateTime(2018, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 }
                 });
 
             migrationBuilder.CreateIndex(

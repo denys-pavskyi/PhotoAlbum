@@ -2,6 +2,9 @@
     <span *ngIf="!file">Choose file</span>
     <span>{{file?file.name:' or drag and drop file here'}}</span><br>
     <button type="button" class="btn btn-info" value="Load .png/.jpeg file" onclick="document.getElementById('file').click();">Load .png/.jpeg file</button><br>
-    <input class="file-input" type="file" style="display:none;" id="file"><br>
-
+    <input class="file-input" type="file" style="display:none;" id="file" accept="image/png, image/jpeg">
+    
+    <div *ngIf="file">
+        <img class="previevUploadedImage" [src]="'/assets/images/db/'+file.name" width="100px"> 
+    </div>
 </div>

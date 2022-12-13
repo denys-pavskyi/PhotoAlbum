@@ -14,4 +14,21 @@
     position: fixed;
     top: calc(50vh - (600px / 2));
     left: calc(50vw - (500px / 2)); 
+    background-color: #EDD7CC;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    
 }
+
+.titleDiv{
+    display: block;
+    margin-top:30px;
+    margin: 50px;
+    text-align: center;
+}
+
+.contentDiv{
+    
+}
+

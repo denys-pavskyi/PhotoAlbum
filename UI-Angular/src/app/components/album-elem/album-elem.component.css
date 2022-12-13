@@ -1,0 +1,25 @@
+.photoImg{
+    height:200px;
+}
+
+.albumInfo{
+    background-color: #938E94;
+    color: #05396B; 
+    font-weight: bold;
+    width: calc(100%+10px);
+
+}
+
+.albumContainer{
+    background-color: #B0A295;
+    text-align: center;
+    
+}
+
+.noPhoto{
+    height:200px;
+    background-color: #B0A295;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

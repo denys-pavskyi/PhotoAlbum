@@ -45,8 +45,8 @@ namespace InternetPhotoAlbum.Tests
 
 
             context.Photos.AddRange(
-                    new Photo { Id = 1, Title = "Photo1", PhotoUrl = "PhotoUrl1", TotalRating = 3.4d, UploadDate = new DateTime(2022, 11, 29), UserId = 1 },
-                    new Photo { Id = 2, Title = "Photo2", PhotoUrl = "PhotoUrl2", TotalRating = 2.5d, UploadDate = new DateTime(2022, 11, 29), UserId = 2 }
+                    new Photo { Id = 1, Title = "Photo1", PhotoPath = "PhotoPath1", TotalRating = 3.4d, UploadDate = new DateTime(2022, 11, 29), UserId = 1 },
+                    new Photo { Id = 2, Title = "Photo2", PhotoPath = "PhotoPath2", TotalRating = 2.5d, UploadDate = new DateTime(2022, 11, 29), UserId = 2 }
                 );
 
             context.Albums.AddRange(

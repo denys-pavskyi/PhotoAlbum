@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class PhotoRatingController : ControllerBase
     {
@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/<PhotoRatingController>
-        [HttpGet]
+        [HttpGet("photoRatings")]
         public async Task<ActionResult<IEnumerable<PhotoRatingModel>>> Get()
         {
             var photoRatings = await _service.GetAllAsync();
@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
         }
 
         // GET api/<PhotoRatingController>/5
-        [HttpGet("{id}")]
+        [HttpGet("photoRating/{id}")]
         public async Task<ActionResult<PhotoRatingModel>> GetById(int id)
         {
             var photoRating = await _service.GetByIdAsync(id);
@@ -51,7 +51,7 @@ namespace WebAPI.Controllers
         }
 
         // POST api/AlbumPhoto
-        [HttpPost]
+        [HttpPost("photoRating")]
         public async Task<ActionResult> Post([FromBody] PhotoRatingModel photoRating)
         {
             if (photoRating == null)
@@ -72,7 +72,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<PhotoRatingController>/5
-        [HttpPut("{id}")]
+        [HttpPut("photoRating/{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] PhotoRatingModel value)
         {
             try
@@ -94,7 +94,7 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<PhotoRatingController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("photoRating/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             var photoRating = await _service.GetByIdAsync(id);
