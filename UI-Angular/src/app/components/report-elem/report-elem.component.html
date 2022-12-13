@@ -1,1 +1,35 @@
-<p>report-elem works!</p>
+
+<div class="container reportElemContainer">
+
+    <div class="row">
+        <div class="col-3 imgDiv">
+            <img class = "photoImg" *ngIf="photo$ | async as photo" [src] = "'/assets/images/db/'+photo.photoPath" >    
+            
+        </div>
+        <div *ngIf="report.comment" class="col-md-6 col-sm-5 commentDiv">
+            <u>Comment: </u>
+            {{report.comment}}
+
+        </div>
+        <div *ngIf="report.status == 2" class="col-3 buttonsDiv">
+            <button class="btn btn-success" (click)="approve(report.id)">
+                Approve
+            </button>
+
+            <button class="btn btn-danger" (click)="decline(report.id)">
+                Decline
+            </button>
+        </div>
+
+        <div *ngIf="report.status == 0 || report.status==1" class="col-3 buttonsDiv">
+            <b>Status:</b> <span class="statusText" [ngStyle]=
+            "{'color': report.status===0?'green':'red'}"
+            
+            ><b>{{statusToString(report.status)}}</b></span>
+        </div>
+        
+    </div>
+    
+    
+</div>
+    

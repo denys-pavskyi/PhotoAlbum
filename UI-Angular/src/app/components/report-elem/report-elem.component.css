@@ -1,0 +1,21 @@
+.photoImg{
+    height: 95px;
+}
+
+.imgDiv{
+    border-right: 5px dotted grey;
+}
+
+.commentDiv{
+    color: #05396B;
+    
+}
+
+.reportElemContainer{
+    height: 100%;
+}
+
+.buttonsDiv{
+    display: flex;
+    align-items: center;
+}

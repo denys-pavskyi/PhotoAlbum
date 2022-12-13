@@ -44,9 +44,11 @@ namespace BuisnessLogicLayer
                 .ForMember(um => um.AlbumIds, u => u.MapFrom(x => x.Albums.Select(x => x.Id)))
                 .ReverseMap();
 
-            CreateMap<Report, ReportModel>()
-                .ReverseMap();
+            CreateMap<ReportModel, Report>()
+                .ForMember(r => r.User, rm => rm.UseDestinationValue())
+                .ForMember(r => r.Photo, rm => rm.UseDestinationValue());
 
+            CreateMap<Report, ReportModel>();
 
         }
     }

@@ -41,6 +41,9 @@ export class PhotoService {
     return throwError(() => error.message)
   } 
 
+  deletePhoto(id: number): Observable<Object>{
+    return this.http.delete(`${this.photoURL}/${id}`);
+  }
 
 
 }

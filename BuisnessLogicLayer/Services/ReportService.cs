@@ -63,5 +63,11 @@ namespace BuisnessLogicLayer.Services
             IEnumerable<Report> unmappedReports = await _unitOfWork.ReportRepository.GetAllWithDetailsAsync();
             return _mapper.Map<IEnumerable<ReportModel>>(unmappedReports.Where(x => x.Status==ReportStatus.OnReview));
         }
+
+        public async Task<IEnumerable<ReportModel>> GetReportsCompleted()
+        {
+            IEnumerable<Report> unmappedReports = await _unitOfWork.ReportRepository.GetAllWithDetailsAsync();
+            return _mapper.Map<IEnumerable<ReportModel>>(unmappedReports.Where(x => x.Status == ReportStatus.Declined || x.Status == ReportStatus.Approved));
+        }
     }
 }

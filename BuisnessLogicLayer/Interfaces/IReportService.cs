@@ -10,5 +10,6 @@ namespace BuisnessLogicLayer.Interfaces
     public interface IReportService: ICrud<ReportModel>
     {
         Task<IEnumerable<ReportModel>> GetReportsOnReview();
+        Task<IEnumerable<ReportModel>> GetReportsCompleted();
     }
 }

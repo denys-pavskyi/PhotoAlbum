@@ -14,7 +14,7 @@ export class Report{
 }
 
 export enum ReportStatus{
-        Approved,
-        Declined,
-        OnReview
+        Approved = 0,
+        Declined = 1,
+        OnReview = 2
 }

@@ -1,21 +1,29 @@
 <div class="container-fluid reportPage">
-    <div class="row">
+    <h1><u>Reports on review:</u></h1>
+    <p *ngIf="loading" class="text-center text-lg">
+        Loading...
+    </p>
+    
+    <div  class="row" *ngFor="let report of reportsOnReview$ | async ; let i = index">
         <div class="col reportElem">
-
+            <app-report-elem [report] = report></app-report-elem>
         </div>
-
     </div>
-    <div class="row">
+    
+
+
+    <h1><u>Completed:</u></h1>
+    <p *ngIf="loading" class="text-center text-lg">
+        Loading...
+    </p>
+    
+    <div  class="row" *ngFor="let report of reportsCompleted$ | async ; let i = index">
         <div class="col reportElem">
-
+            <app-report-elem [report] = report></app-report-elem>
         </div>
-
     </div>
-    <div class="row">
-        <div class="col reportElem">
 
-        </div>
-
-    </div>
+    
+    
 
 </div>

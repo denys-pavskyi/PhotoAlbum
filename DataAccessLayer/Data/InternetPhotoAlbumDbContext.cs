@@ -440,6 +440,16 @@ namespace DataAccessLayer.Data
             );
 
 
+            modelBuilder.Entity<Report>().HasData(
+                new Report { Id = 1, Status = ReportStatus.OnReview, PhotoId = 6, Comment = "Report comment 1", UserId = 2 },
+                new Report { Id = 2, Status = ReportStatus.OnReview, PhotoId = 11, Comment = "Report comment 2", UserId = 3 },
+                new Report { Id = 3, Status = ReportStatus.OnReview, PhotoId = 18, Comment = "Report comment 3", UserId = 3 },
+                new Report { Id = 4, Status = ReportStatus.Approved, PhotoId = 19, Comment = "Report comment 4", UserId = 1 },
+                new Report { Id = 5, Status = ReportStatus.Declined, PhotoId = 21, Comment = "Report comment 5", UserId = 1 },
+                new Report { Id = 6, Status = ReportStatus.OnReview, PhotoId = 1, Comment = "Report comment 6", UserId = 1 },
+                new Report { Id = 7, Status = ReportStatus.OnReview, PhotoId = 8, Comment = "Report comment 7", UserId = 2 }
+                );
+
         }
 
 

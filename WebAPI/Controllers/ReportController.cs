@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
 
         }
 
-        // GET: api/<ReportController>
+        // GET: api/<ReportController>/onReview
         [HttpGet("reports/onReview")]
         public async Task<ActionResult<IEnumerable<ReportModel>>> GetReportsOnReview()
         {
@@ -52,6 +52,26 @@ namespace WebAPI.Controllers
             }
 
         }
+
+        // GET: api/<ReportController>/completed
+        [HttpGet("reports/completed")]
+        public async Task<ActionResult<IEnumerable<ReportModel>>> GetReportsCompleted()
+        {
+            var reports = await _service.GetReportsCompleted();
+
+            if (reports == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+
+                return new ObjectResult(reports);
+            }
+
+        }
+
+        
 
         // GET api/<ReportController>/5
         [HttpGet("report/{id}")]
