@@ -28,6 +28,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ReportElemComponent } from './components/report-elem/report-elem.component';
 import { ReportPhotoComponent } from './components/report-photo/report-photo.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -63,11 +64,14 @@ import { GlobalErrorComponent } from './components/global-error/global-error.com
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'profile', component: ProfileComponent},
-      {path: 'upload-photo', component: UploadPhotoComponent},
-      {path: 'reports-list', component: ReportsListComponent},
-      {path: 'albums-list', component: AlbumsListComponent},
-      {path: 'registration', component: RegistrationComponent}
+      {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+      {path: 'upload-photo', component: UploadPhotoComponent, canActivate: [AuthGuard]},
+      {path: 'reports-list', component: ReportsListComponent, canActivate: [AuthGuard]},
+      {path: 'albums-list', component: AlbumsListComponent, canActivate: [AuthGuard]},
+      {path: 'registration', component: RegistrationComponent},
+      {path: 'album/:id', component: AlbumComponent, canActivate: [AuthGuard]},
+      {path: 'photo/:id', component: PhotoComponent, canActivate: [AuthGuard]},
+      { path: "**",redirectTo:"/home"}
     ])
   ],
   providers: [],

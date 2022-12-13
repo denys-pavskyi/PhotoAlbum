@@ -26,7 +26,9 @@ export class AlbumService {
   }
 
   createAlbum(album: Album): Observable<Object>{
-   return this.http.post(`${this.albumURL}`, album, { responseType: 'text' });
+   return this.http.post(`${this.albumURL}`, album, { responseType: 'text' }).pipe(
+    catchError(this.errorHandler.bind(this))
+    );
   }
 
   getPreviewPhotoByAlbumId(albumId: number){
