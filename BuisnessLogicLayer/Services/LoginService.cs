@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using DataAccessLayer.Entities;
 using BuisnessLogicLayer.Helpers;
 using NuGet.Protocol.Plugins;
+using BuisnessLogicLayer.Validation;
 
 namespace BuisnessLogicLayer.Services
 {
@@ -33,13 +34,13 @@ namespace BuisnessLogicLayer.Services
             var currentUserUnmapped = users.FirstOrDefault(x => x.UserName.ToLower()== loginRequest.UserName.ToLower() && x.UserStatus!= UserStatus.Banned);
             var currentUser = _mapper.Map<UserModel>(currentUserUnmapped);
             if(currentUser == null) {
-                return null;
+                throw new InternetPhotoAlbumException("User wasn't found");
             }
 
             var passwordHash = HashingHelper.HashUsingPbkdf2(loginRequest.Password, currentUser.PasswordSalt);
             if(currentUser.Password != passwordHash)
             {
-                return null;
+                throw new InternetPhotoAlbumException("User wasn't found");
             }
 
             var token = await Task.Run(() => TokenHelper.GenerateToken(currentUser));

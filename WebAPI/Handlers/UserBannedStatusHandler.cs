@@ -18,8 +18,17 @@ namespace WebAPI.Handlers
             {
                 return Task.CompletedTask;
             }
-
-            string userStatus = context.User.FindFirst(c => c.Type == "Status" && c.Issuer == TokenHelper.Issuer).Value;
+            string? userStatus;
+            if (context.User == null)
+            {
+                return Task.CompletedTask;
+            }
+            else
+            {
+                
+                userStatus = context.User.FindFirst(c => c.Type == "Status" && c.Issuer == TokenHelper.Issuer).Value;
+            }
+            
             
             if (userStatus == requirement.UserStatus.ToString())
             {

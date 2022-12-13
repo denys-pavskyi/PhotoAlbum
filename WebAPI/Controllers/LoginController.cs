@@ -29,8 +29,16 @@ namespace WebAPI.Controllers
             {
                 return BadRequest("Missing login details");
             }
-
-            var loginResponse = await _service.LoginAsync(loginRequest);
+            LoginResponse? loginResponse;
+            try
+            {
+                 loginResponse = await _service.LoginAsync(loginRequest);
+            }
+            catch
+            {
+                return BadRequest($"Invalid credentials");
+            }
+            
 
             if (loginResponse == null)
             {
