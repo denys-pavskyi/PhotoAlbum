@@ -74,7 +74,7 @@ namespace DataAccessLayer.Data
                 .HasOne(x => x.User).WithMany(x => x.Reports).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.NoAction);
 
 
-            SeedData(modelBuilder);
+            //SeedData(modelBuilder);
 
 
             
