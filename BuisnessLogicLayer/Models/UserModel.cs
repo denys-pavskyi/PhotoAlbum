@@ -29,6 +29,7 @@ namespace BuisnessLogicLayer.Models
         public ICollection<int>? PhotoRatingIds { get; set; }
         public ICollection<int>? PhotoIds { get; set; }
         public ICollection<int>? AlbumIds { get; set; }
+        public ICollection<int>? ReportIds { get; set; }
 
     }
 }

@@ -44,7 +44,7 @@ namespace BuisnessLogicLayer.Services
 
             var token = await Task.Run(() => TokenHelper.GenerateToken(currentUser));
 
-            return new LoginResponse { Username = currentUser.UserName, FirstName = currentUser.FirstName, Id = currentUser.Id, LastName = currentUser.LastName, Token = token };
+            return new LoginResponse { Username = currentUser.UserName, Id = currentUser.Id, Role = currentUser.Role.ToString(), Token = token };
         }
 
 

@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="container-fluid loginPage">
+    <h1><u>Login:</u></h1>
+
+    <form [formGroup]="form"  novalidate>
+        <div>
+            <label>Username: </label>
+            <input type="text" name="username" formControlName="username">
+            <div class="validationFailed" *ngIf="form.controls['username'].invalid"> Username is not valid</div>
+        </div><br>
+        <div>
+            <label>Password: </label>
+            <input type="password" name="password" formControlName="password">
+            <div class="validationFailed" *ngIf="form.controls['password'].invalid"> Password is not valid</div>
+            
+        </div><br>
+
+        
+        <button (click)="login()">Confirm</button>
+           
+    </form>
+
+
+    <button class="btn btn-link linkButton" [routerLink]="['/registration']" >
+        If you are not registered press here
+    </button>
+</div>

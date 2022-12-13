@@ -11,7 +11,7 @@ export class ErrorService {
   constructor() { }
 
   handle(message: string){
-    this.error$.next(message)
+    console.log(this.error$.next(message));
   }
 
   clear(){

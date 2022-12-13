@@ -64,7 +64,8 @@ import { ReportPhotoComponent } from './components/report-photo/report-photo.com
       {path: 'profile', component: ProfileComponent},
       {path: 'upload-photo', component: UploadPhotoComponent},
       {path: 'reports-list', component: ReportsListComponent},
-      {path: 'albums-list', component: AlbumsListComponent}
+      {path: 'albums-list', component: AlbumsListComponent},
+      {path: 'registration', component: RegistrationComponent}
     ])
   ],
   providers: [],

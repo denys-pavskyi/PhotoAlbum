@@ -1,0 +1,11 @@
+.loginPage{
+    min-height: 100vh;
+}
+
+.linkButton{
+    color:#05396B;
+}
+
+.validationFailed{
+    color:red;
+}

@@ -33,7 +33,9 @@ export class PhotoService {
    }
 
    createPhoto(photo: Photo): Observable<Object>{
-    return this.http.post(`${this.photoURL}`, photo, { responseType: 'text' });
+    return this.http.post(`${this.photoURL}`, photo, { responseType: 'text' }).pipe(
+      catchError(this.errorHandler.bind(this))
+    );
    }
 
    private errorHandler(error: HttpErrorResponse){
