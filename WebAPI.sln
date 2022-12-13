@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "UI-Angular", "UI-Angular\UI-Angular.esproj", "{2E917E3D-99AD-4759-8F6B-E91AAB5914E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetPhotoAlbum.Tests", "InternetPhotoAlbum.Tests\InternetPhotoAlbum.Tests.csproj", "{8039EE1E-ED28-49B1-8BF9-F49E2A848EF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternetPhotoAlbum.Tests", "InternetPhotoAlbum.Tests\InternetPhotoAlbum.Tests.csproj", "{8039EE1E-ED28-49B1-8BF9-F49E2A848EF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
