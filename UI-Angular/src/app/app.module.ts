@@ -27,6 +27,7 @@ import { AlbumElemComponent } from './components/album-elem/album-elem.component
 import { RegistrationComponent } from './components/registration/registration.component';
 import { ReportElemComponent } from './components/report-elem/report-elem.component';
 import { ReportPhotoComponent } from './components/report-photo/report-photo.component';
+import { GlobalErrorComponent } from './components/global-error/global-error.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ReportPhotoComponent } from './components/report-photo/report-photo.com
     AlbumElemComponent,
     RegistrationComponent,
     ReportElemComponent,
-    ReportPhotoComponent
+    ReportPhotoComponent,
+    GlobalErrorComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, 

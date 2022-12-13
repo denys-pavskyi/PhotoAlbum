@@ -1,0 +1,16 @@
+.errorText{
+    height: 50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color:white;
+    position: relative;
+}
+
+.errorButton{
+    position: absolute;
+    top:2px;
+    right: 5px;
+    color:red;
+}
