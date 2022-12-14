@@ -29,6 +29,7 @@ import { ReportPhotoComponent } from './components/report-photo/report-photo.com
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AdminGuard } from './guards/admin.guard';
     RegistrationComponent,
     ReportElemComponent,
     ReportPhotoComponent,
-    GlobalErrorComponent
+    GlobalErrorComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, 

@@ -105,5 +105,24 @@ namespace WebAPI.Controllers
             await _service.DeleteAsync(id);
             return Ok(photoRating);
         }
+
+        //HasUserRankedPhoto
+        // GET api/<PhotoRatingController>/hasRated/{userId}/{photoId}
+        [HttpGet("photoRating/hasRated/{userId}/{photoId}")]
+        public async Task<ActionResult> HasUserRankedPhoto(int userId, int photoId)
+        {
+            var photoRating = await _service.HasUserRankedPhoto(userId, photoId);
+
+            if (photoRating == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(photoRating);
+            }
+            
+            
+        }
     }
 }

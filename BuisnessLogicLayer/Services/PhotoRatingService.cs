@@ -57,5 +57,12 @@ namespace BuisnessLogicLayer.Services
             _unitOfWork.PhotoRatingRepository.Update(mapped);
             await _unitOfWork.SaveAsync();
         }
+
+        public async Task<PhotoRatingModel> HasUserRankedPhoto(int userId, int photoId)
+        {
+            IEnumerable<PhotoRating> photoRatings = await _unitOfWork.PhotoRatingRepository.GetAllWithDetailsAsync();
+            var photoRating = photoRatings.FirstOrDefault(x=> x.UserId==userId&& x.PhotoId==photoId);
+            return _mapper.Map<PhotoRatingModel>(photoRating);
+        }
     }
 }

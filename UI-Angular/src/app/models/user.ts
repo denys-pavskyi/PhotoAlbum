@@ -1,6 +1,7 @@
 import { last } from "rxjs";
 
 export class User{
+    id!: number;
     username: string;
     password: string;
     emailAddress: string;
