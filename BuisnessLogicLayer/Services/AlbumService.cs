@@ -50,6 +50,14 @@ namespace BuisnessLogicLayer.Services
             return _mapper.Map<AlbumModel>(unmappedAlbum);
         }
 
+        public async Task<IEnumerable<PhotoModel>> GetAlbumPhotosByAlbumId(int albumId)
+        {
+            var unmappedAlbum = await _unitOfWork.AlbumRepository.GetByIdWithDetailsAsync(albumId);
+
+
+            var photosUnmapped = (await _unitOfWork.PhotoRepository.GetAllWithDetailsAsync()).Where(x => unmappedAlbum.AlbumPhotos.Select(x=>x.PhotoId).Contains(x.Id));
+            return _mapper.Map<IEnumerable<PhotoModel>>(photosUnmapped);
+        }
         public async Task<IEnumerable<AlbumModel>> GetByUserIdAsync(int userId)
         {
             IEnumerable<Album> unmappedAlbums = await _unitOfWork.AlbumRepository.GetAllWithDetailsAsync();

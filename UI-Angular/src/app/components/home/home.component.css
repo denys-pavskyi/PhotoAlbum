@@ -31,12 +31,3 @@
     height:40px;
 }
 
-.textNoLinkStyle{
-    color: #05396B;
-    text-decoration: none;
-}
-
-.textNoLinkStyle:hover{
-    color: white;
-    text-decoration: underline;
-}

@@ -1,0 +1,14 @@
+.photoPageContainer{
+    min-height: 100vh;
+}
+
+.photoDiv{
+    min-height: 350px;
+    max-height: 600px;
+    background-color: #B0A295;
+}
+
+.photoImg{
+   
+    max-width: 600px;
+}

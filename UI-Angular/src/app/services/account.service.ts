@@ -12,8 +12,6 @@ import { ErrorService } from './error.service';
 export class AccountService implements OnInit {
 
   
-  public isLogged = false;
-
   loginURL: string = 'http://localhost:47392/api/login';
   registrationURL: string ='http://localhost:47392/api/user';
 
@@ -34,6 +32,35 @@ export class AccountService implements OnInit {
       catchError(this.errorHandler.bind(this))
     );
   }
+  
+  get isLogged(): boolean{
+    if(window.localStorage.getItem("Token")){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  get isAdmin():boolean{
+    let role = window.localStorage.getItem('Role');
+    if(role){
+      if(role=="Admin"){
+        return true;
+      }else{
+        return false;
+      }
+    }else{
+      return false;
+    }
+  }
+
+  get userId(): number{
+    if(window.localStorage.getItem('ID')){
+      return Number(window.localStorage.getItem('ID'));
+    }else{
+      return -1;
+    }
+  }
 
   saveSession(loginResponse: LoginResponse) {
     window.localStorage.setItem('Username', loginResponse.username);
@@ -42,9 +69,10 @@ export class AccountService implements OnInit {
     window.localStorage.setItem('Token', loginResponse.token);
   }
 
+  
+
   logout() {
     window.localStorage.clear();
-    this.isLogged = false;
   }
 
   private errorHandler(error: HttpErrorResponse){

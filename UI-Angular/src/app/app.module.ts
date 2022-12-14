@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { CreateAlbumComponent } from './components/create-album/create-album.component';
 import { AlbumsListComponent } from './components/albums-list/albums-list.component';
 import { AlbumComponent } from './components/album/album.component';
@@ -29,13 +28,13 @@ import { ReportElemComponent } from './components/report-elem/report-elem.compon
 import { ReportPhotoComponent } from './components/report-photo/report-photo.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ProfileComponent,
     CreateAlbumComponent,
     AlbumsListComponent,
     AlbumComponent,
@@ -64,9 +63,8 @@ import { AuthGuard } from './guards/auth.guard';
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
       {path: 'upload-photo', component: UploadPhotoComponent, canActivate: [AuthGuard]},
-      {path: 'reports-list', component: ReportsListComponent, canActivate: [AuthGuard]},
+      {path: 'reports-list', component: ReportsListComponent, canActivate: [AuthGuard,AdminGuard]},
       {path: 'albums-list', component: AlbumsListComponent, canActivate: [AuthGuard]},
       {path: 'registration', component: RegistrationComponent},
       {path: 'album/:id', component: AlbumComponent, canActivate: [AuthGuard]},

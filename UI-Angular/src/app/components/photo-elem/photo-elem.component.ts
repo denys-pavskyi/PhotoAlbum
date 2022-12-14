@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Photo } from 'src/app/models/photo';
+import { AccountService } from 'src/app/services/account.service';
 import { ModalsService } from 'src/app/services/modals.service';
 
 @Component({
@@ -9,9 +10,9 @@ import { ModalsService } from 'src/app/services/modals.service';
 })
 export class PhotoElemComponent implements OnInit {
   @Input()photo!: Photo;
-  @Input()modalsService!: ModalsService
+  @Input()modalsService!: ModalsService;
 
-  constructor(){
+  constructor(public accountService: AccountService){
 
   }
   ngOnInit(): void {

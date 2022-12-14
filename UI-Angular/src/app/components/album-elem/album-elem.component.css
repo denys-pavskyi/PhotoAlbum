@@ -23,3 +23,13 @@
     justify-content: center;
     align-items: center;
 }
+
+.textNoLinkStyle{
+    color: #05396B;
+    text-decoration: none;
+}
+
+.textNoLinkStyle:hover{
+    color: white;
+    text-decoration: underline;
+}

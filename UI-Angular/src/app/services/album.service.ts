@@ -24,6 +24,11 @@ export class AlbumService {
      catchError(this.errorHandler.bind(this))
    )
   }
+  getAlbumById(id: number): Observable<Album>{
+    return this.http.get<Album>(`${this.albumURL}/${id}`).pipe(
+      catchError(this.errorHandler.bind(this))
+    )
+  }
 
   createAlbum(album: Album): Observable<Object>{
    return this.http.post(`${this.albumURL}`, album, { responseType: 'text' }).pipe(
@@ -31,8 +36,14 @@ export class AlbumService {
     );
   }
 
-  getPreviewPhotoByAlbumId(albumId: number){
+  getPreviewPhotoByAlbumId(albumId: number): Observable<Photo>{
     return this.http.get<Photo>(`${this.albumURL}/${albumId}/preview`).pipe(
+      catchError(this.errorHandler.bind(this))
+    )
+  }
+
+  getPhotosByAlbumId(albumId: number): Observable<Photo[]>{
+    return this.http.get<Photo[]>(`${this.albumURL}/${albumId}/photos`).pipe(
       catchError(this.errorHandler.bind(this))
     )
   }

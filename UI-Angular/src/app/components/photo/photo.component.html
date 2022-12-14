@@ -1,1 +1,13 @@
-<p>photo works!</p>
+<div class="container-fluid photoPageContainer" *ngIf="photo$ | async as photo">
+    <div class="row photoDiv">
+        <div class="col-md-6">
+            <img class="photoImg" [src] = "'/assets/images/db/'+photo.photoPath">
+        </div>
+        <div class="col-md-6">
+            <b>Title:</b> {{photo.title}}<br>
+            <b>Description:</b>{{photo.description}}<br>
+            <b>Uploaded By:</b> {{photo.userName}} <b>On: </b>({{photo.uploadDate.toLocaleString().split('T')[0]}})<br>
+           
+        </div>
+    </div>
+</div>

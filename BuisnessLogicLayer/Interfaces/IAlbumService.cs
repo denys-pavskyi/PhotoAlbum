@@ -11,6 +11,6 @@ namespace BuisnessLogicLayer.Interfaces
     {
         Task<IEnumerable<AlbumModel>> GetByUserIdAsync(int userId);
         Task<PhotoModel> GetFirstPhotoByAlbumId(int albumId);
-
+        Task<IEnumerable<PhotoModel>> GetAlbumPhotosByAlbumId(int albumId);
     }
 }

@@ -7,24 +7,37 @@
     border-radius: 3em 6em 0px 0px;
 }
 .fit-content-class{
-    height:fit-content;
     padding: 0px 0px 0px 0px;
 }
 .photoDetails{
     background-color: #938E94;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 200px;
     width: 100%;
     border-radius: 0em 0em 3em 6em;
 }
 
+.textNoLinkStyle{
+    color: #05396B;
+    text-decoration: none;
+}
+
+.textNoLinkStyle:hover{
+    color: white;
+    text-decoration: underline;
+}
 .photoElemContainer{
     width: 100%;
+    height: 100%;
+    justify-content: center;
     overflow: hidden;
     padding: 0px 0px 0px 0px;
 }
 
 .descriptionDiv{
-    width:auto;
+    width:100%;
     height: 6ch;
     margin-right:0px;
     overflow: hidden;

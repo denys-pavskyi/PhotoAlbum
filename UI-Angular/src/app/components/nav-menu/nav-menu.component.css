@@ -11,3 +11,8 @@ nav>a{
 .navbar{
     background-color: #BBB2B5;
 }
+
+.nav-item{
+    display: flex;
+    align-items: center;
+}

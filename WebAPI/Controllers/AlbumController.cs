@@ -66,8 +66,21 @@ namespace WebAPI.Controllers
             }
         }
 
-
         
+        // GET api/album/{id}/photos
+        [HttpGet("album/{id}/photos")]
+        public async Task<ActionResult<IEnumerable<PhotoModel>>> GetPhotosByAlbumId(int id)
+        {
+            var photos = await _service.GetAlbumPhotosByAlbumId(id);
+            if (photos == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return new ObjectResult(photos);
+            }
+        }
 
         // GET api/<AlbumController>/5
         [HttpGet("album/user/{userId}")]

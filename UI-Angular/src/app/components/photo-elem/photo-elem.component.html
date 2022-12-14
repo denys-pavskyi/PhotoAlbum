@@ -1,19 +1,24 @@
 <div class="container-fluid photoElemContainer">
-    <div class="row fit-content-class">
-        <div class="col-md-12 fit-content-class">
-            <img [src] = "'/assets/images/db/'+photo.photoPath"  class = "photoImg">
-    
+    <div class="row">
+        <div class="col-md-12" >
+            <a [routerLink]="['/photo',photo.id]">
+                <img [src] = "'/assets/images/db/'+photo.photoPath"  class = "photoImg">
+            </a>
+            
         </div>
     </div>
     <div class="row">
-        <div class="col-md photoDetails">
-            <b>Title:</b> {{photo.title}}<br>
-            <b>Uploaded By:</b> {{photo.userName}} <b>On: </b>({{photo.uploadDate.toLocaleString().split('T')[0]}})<br>
+        <div class="col-md photoDetails textNoLinkStyle">
+            <div class="descriptionDiv">
+                <b>Title:</b> {{photo.title}}<br>
+                <b>Uploaded By:</b> {{photo.userName}} <b>On: </b>({{photo.uploadDate.toLocaleString().split('T')[0]}})<br>
+           
+            </div>
             <div class="descriptionDiv"><b>Description:</b> {{photo.description}}</div>
 
 
             <br>
-            <div class="reactions">
+            <div class="reactions" *ngIf="accountService.userId!=photo.userId">
                 <b>Feedback: <br></b>
                 <button class="btn btn-link feedBackButton" (click)="modalsService.openReport()">
                     <img height="20px" src="assets/icons/report-flag-icon.png" alt="Report photo">

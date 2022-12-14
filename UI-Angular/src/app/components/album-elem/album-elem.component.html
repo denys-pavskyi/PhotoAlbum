@@ -1,10 +1,11 @@
+
 <div class="noPhoto" *ngIf="album.numberOfPictures<1" >
     No photos
 </div>
 <div class="albumContainer" >
-
-    <img *ngIf="photo$ | async as photo"  [src] = "'/assets/images/db/'+photo.photoPath"  class = "photoImg">
-    
+    <a [routerLink]="['/album',album.id]">
+        <img *ngIf="photo$ | async as photo"  [src] = "'/assets/images/db/'+photo.photoPath"  class = "photoImg">
+    </a>
     
     <div class="albumInfo">
         Title: {{album.title}}<br>

@@ -1,1 +1,19 @@
-<p>album works!</p>
+<div class="container-fluid albumPhotoContainer" *ngIf="album$ | async as album">
+    {{album.id}}
+
+
+    <div class="row photosDiv d-flex justify-content-center">
+        <div class="col-12">
+            <div class="row d-flex justify-content-center" *ngIf="photos$ | async">
+                <div class="col-lg-5 photoElementDiv" *ngFor="let photo of photos$ | async ; let i = index">
+                    <app-photo-elem [photo] = "photo" [modalsService]="modalsService"></app-photo-elem>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+
+</div>
