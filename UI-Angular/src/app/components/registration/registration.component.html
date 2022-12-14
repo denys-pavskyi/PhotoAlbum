@@ -1,6 +1,43 @@
 <div class="container-fluid registerPage">
     <h1><u>Register:</u></h1>
 
+    <form [formGroup]="form"  novalidate>
+        <div>
+            <label>FirstName: </label>
+            <input type="text" name="firstName" formControlName="firstName">
+            <div class="validationFailed" *ngIf="form.controls['firstName'].invalid"> FirstName is not valid</div>
+        </div><br>
+        <div>
+            <label>LastName: </label>
+            <input type="text" name="lastName" formControlName="lastName">
+            <div class="validationFailed" *ngIf="form.controls['lastName'].invalid"> LastName is not valid</div>
+        </div><br>
+        <div>
+            <label>Email: </label>
+            <input type="email" name="emailAddress" formControlName="emailAddress">
+            <div class="validationFailed" *ngIf="form.controls['emailAddress'].invalid"> Email Address is not valid</div>
+        </div><br>
+        <div>
+            <label>Birth Date: </label>
+            <input type="date" name="birthDate" formControlName="birthDate">
+            <div class="validationFailed" *ngIf="form.controls['birthDate'].invalid"> Birth Date is not valid</div>
+        </div><br>
+        <div>
+            <label>Username: </label>
+            <input type="text" name="username" formControlName="username">
+            <div class="validationFailed" *ngIf="form.controls['username'].invalid"> Username is not valid</div>
+        </div><br>
+        <div>
+            <label>Password: </label>
+            <input type="password" name="password" formControlName="password">
+            <div class="validationFailed" *ngIf="form.controls['password'].invalid"> Password is not valid</div>
+            
+        </div><br>
+
+        
+        <button (click)="register()">Confirm</button>
+           
+    </form>
 
 
 

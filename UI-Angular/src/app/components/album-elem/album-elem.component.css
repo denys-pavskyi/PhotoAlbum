@@ -29,7 +29,3 @@
     text-decoration: none;
 }
 
-.textNoLinkStyle:hover{
-    color: white;
-    text-decoration: underline;
-}

@@ -18,3 +18,13 @@
     padding-right: 10px;
     height: max-content;
 }
+
+.albumInfo{
+    background-color: #938E94;
+    color: #05396B; 
+    font-weight: bold;
+    width: 30%;
+    padding-left:20px;
+    margin: auto;
+
+}

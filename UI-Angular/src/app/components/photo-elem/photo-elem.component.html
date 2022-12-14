@@ -20,12 +20,19 @@
             <br>
             <div class="reactions" *ngIf="accountService.userId!=photo.userId">
                 <b>Feedback: <br></b>
-                <button class="btn btn-link feedBackButton" (click)="modalsService.openReport()">
-                    <img height="20px" src="assets/icons/report-flag-icon.png" alt="Report photo">
-                </button>
-                <button class="btn btn-link feedBackButton" (click)="modalsService.openAlbum()">
-                    <img height="20px" src="assets/icons/file-new-icon.png" alt="Add to your album" >
-                </button>
+                <div class="reactionsDiv">
+                    <button class="btn btn-link feedBackButton" (click)="modalsService.openReport()">
+                        <img height="20px" src="assets/icons/report-flag-icon.png" alt="Report photo">
+                    </button>
+                    <button class="btn btn-link feedBackButton" (click)="modalsService.openAlbum()">
+                        <img height="20px" src="assets/icons/file-new-icon.png" alt="Add to your album" >
+                    </button>
+                    <div class="container ratingDiv">
+                        <span id="rateMe2"  class="empty-stars">1</span>
+                      </div>
+                </div>
+                
+                
             </div>
         </div>
     </div>

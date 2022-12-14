@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams  } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
 import { LoginRequest } from '../models/loginReqest';
 import { LoginResponse } from '../models/loginResponse';
@@ -15,7 +16,9 @@ export class AccountService implements OnInit {
   loginURL: string = 'http://localhost:47392/api/login';
   registrationURL: string ='http://localhost:47392/api/user';
 
-  constructor(private http: HttpClient, private errorService: ErrorService) {
+  constructor(private http: HttpClient, 
+    private errorService: ErrorService,
+    private router: Router) {
     
    }
   ngOnInit(): void {
@@ -73,6 +76,7 @@ export class AccountService implements OnInit {
 
   logout() {
     window.localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
   private errorHandler(error: HttpErrorResponse){

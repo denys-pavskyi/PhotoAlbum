@@ -16,3 +16,7 @@ nav>a{
     display: flex;
     align-items: center;
 }
+
+.logOut{
+    cursor: pointer;
+}

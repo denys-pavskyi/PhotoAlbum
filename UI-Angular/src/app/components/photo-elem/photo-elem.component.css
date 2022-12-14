@@ -24,10 +24,6 @@
     text-decoration: none;
 }
 
-.textNoLinkStyle:hover{
-    color: white;
-    text-decoration: underline;
-}
 .photoElemContainer{
     width: 100%;
     height: 100%;
@@ -45,8 +41,28 @@
 }
 
 .feedBackButton{
-    position: relative;
-    top: 15;
+    margin:0px 15px 0px 15px;
     border: 1px solid black;
     border-radius: 50%;
+}
+
+.reactionsDiv>*{
+    display: flex;
+}
+
+.reactionsDiv{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:space-around;
+    
+}
+
+.reactions{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
 }

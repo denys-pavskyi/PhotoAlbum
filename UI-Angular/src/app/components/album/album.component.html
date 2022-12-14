@@ -1,5 +1,10 @@
 <div class="container-fluid albumPhotoContainer" *ngIf="album$ | async as album">
-    {{album.id}}
+    <div class="albumInfo rounded">
+        <u>Title:</u>  {{album.title}}<br><br>
+        ({{album.numberOfPictures}}) Pictures<br><br>
+        <u>Description:</u>  {{album.description}}<br><br>
+        <u>Created at:</u>  {{album.creationDate.toLocaleString().split('T')[0]}}<br>
+    </div>
 
 
     <div class="row photosDiv d-flex justify-content-center">

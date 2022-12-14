@@ -19,7 +19,7 @@ export class AlbumsListComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loading = true;
-    this.albums$ = this.albumService.getAllByUserId(2).pipe(
+    this.albums$ = this.albumService.getAllByUserId(Number(window.localStorage.getItem('ID'))).pipe(
       tap(() => this.loading = false)
     );
 

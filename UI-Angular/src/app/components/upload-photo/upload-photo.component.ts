@@ -32,7 +32,7 @@ export class UploadPhotoComponent implements OnInit {
     const desctiption = this.form.get('description')?.value;
     const image = this.form.get('image')?.value;
     const date = new Date();
-    const photo = new Photo(image.name, title, desctiption,date, 1, 0, [],[],[],"johny1");
+    const photo = new Photo(image.name, title, desctiption,date, Number(window.localStorage.getItem('ID')), 0, [],[],[],"johny1");
 
     this.photoService.createPhoto(photo).pipe(
       first()
